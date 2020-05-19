@@ -1,0 +1,62 @@
+{% extends 'base.html'%}
+{% block title %} Login {% endblock %}
+{% block banner %} Please Login Below {% endblock banner%}
+{% block subtext %} Login {% endblock subtext %}
+
+{% block WelcomeArea %}
+{% endblock WelcomeArea %}
+
+{% block AboutContent %}
+{% endblock AboutContent %}
+
+{% block content %}
+  {% if ListOfSno %}
+    <center>
+      <h2>Thanks! Data entries of Sno. {{ ListOfSno }} will be added!</h2>
+      <p> We will respond shortly </p>
+    </center>
+    <br/><br/><br/>
+  {% else %}
+    <body>
+      <div class="container">
+        <h1>Please login </h1>
+        <h8>Only for administrators </h8>
+        <form action="" method="POST">
+          <br>
+          <br>
+          <br>
+          <input type="text" placeholder="Username" name="username" class="form-control mb-30" value="{{request.form.username}}">
+          <input type="password" placeholder="Password" name="password" class="form-control mb-30" value="{{request.form.password}}">
+          <input class="btn dento-btn" type="Submit" name="Login">
+        </form>
+          <br>
+        {% if error %}
+          <p class="error"><strong>Error:</strong>{{ error }}</p>
+        {% endif %}
+          <br>
+      </div>
+    </body>
+  {% endif %}
+
+{% endblock %}
+
+{% block Pricing %}
+{% endblock Pricing %}
+
+{% block Consultations %}
+{% endblock Consultations %}
+
+{% block Reccomendations %}
+{% endblock Reccomendations %}
+
+{% block Testimonials %}
+{% endblock Testimonials %}
+
+{% block TheLatestNews %}
+{% endblock TheLatestNews %}
+
+
+
+
+
+

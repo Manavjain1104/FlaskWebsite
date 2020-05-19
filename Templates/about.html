@@ -1,0 +1,77 @@
+{% extends 'base.html'%}
+
+{% block banner %} About Us {% endblock banner %}
+{% block subtext %} About Us {% endblock subtext %}
+{% block WelcomeArea %}
+{% endblock WelcomeArea %}
+
+{% block content %}
+
+  <!-- ***** Testimonials Area Start ***** -->
+  <section class="testimonials-area section-padding-100 bg-img bg-gradient-overlay jarallax clearfix" style="background-image: url({{url_for('static', filename='website/img/bg-img/7.jpg')}})">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <!-- Testimonials Slides -->
+          <div class="testimonials-slides owl-carousel">
+            <!-- Single Testimonials Slide -->
+            <div class="single-testimonial-slide d-flex align-items-center">
+              <!-- Thumbnail -->
+              <div class="testimonial-thumb">
+                <img src="{{url_for('static', filename='website/img/bg-img/8.jpg')}}" alt="">
+              </div>
+              <!-- Content -->
+              <div class="testimonial-content">
+                <h5>“I'd been reluctant to do tech shopping for my family for years due to bad experiences. I used to always end up buying something a few generations old or sometimes even a fake. But now with Tech Troubles' excellent advice, I am now confidently able to shop, knowing my choices satify my needs.”</h5>
+                <h6>Arron Ramsey</h6>
+                <p>Customer</p>
+              </div>
+            </div>
+
+            <!-- Single Testimonials Slide -->
+            <div class="single-testimonial-slide d-flex align-items-center">
+              <!-- Thumbnail -->
+              <div class="testimonial-thumb">
+                <img src="{{url_for('static', filename='website/img/bg-img/8.jpg')}}" alt="">
+              </div>
+              <!-- Content -->
+              <div class="testimonial-content">
+                <h5>I'd been reluctant to do tech shopping for my family for years due to bad experiences. I used to always end up buying something a few generations old or sometimes even a fake. But now with Tech Troubles' excellent advice, I am now confidently able to shop, knowing my choices satify my needs</h5>
+                <h6>Arron Ramsey</h6>
+                <p>Customert</p>
+              </div>
+            </div>
+
+            <!-- Single Testimonials Slide -->
+            <div class="single-testimonial-slide d-flex align-items-center">
+              <!-- Thumbnail -->
+              <div class="testimonial-thumb">
+                <img src="{{url_for('static', filename='website/img/bg-img/8.jpg')}}" alt="">
+              </div>
+              <!-- Content -->
+              <div class="testimonial-content">
+                <h5>I'd been reluctant to do tech shopping for my family for years due to bad experiences. I used to always end up buying something a few generations old or sometimes even a fake. But now with Tech Troubles' excellent advice, I am now confidently able to shop, knowing my choices satify my needs</h5>
+                <h6>Arron Ramsey</h6>
+                <p>Customer</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ***** Testimonials Area End ***** -->
+
+ {% endblock content %}
+
+{% block Pricing %}
+{% endblock Pricing %}
+
+{% block Consultations %}
+{% endblock Consultations %}
+
+{% block Testimonials %}
+{% endblock Testimonials %}
+
+ {% block TheLatestNews %}
+{% endblock TheLatestNews %}

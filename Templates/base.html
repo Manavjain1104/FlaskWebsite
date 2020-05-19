@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="en">
+ <!--settings.py line 119 Gmail password-->
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="{% block meta %}CS end year project{% endblock %}">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Title -->
+  <title>{% block title %}Manav Jain CS Project 2020-2021 {% endblock %}</title>
+  <!-- Favicon -->
+  <link rel="icon" href="{{url_for('static', filename='website/img/core-img/favicon.ico')}}">
+  <!-- Core Stylesheet -->
+  <link rel="stylesheet" href="{{url_for('static', filename='website/css/style.css')}}">
+</head>
+
+<body>
+
+{% block Header %}
+  <!-- Preloader -->
+  <div id="preloader">
+    <div class="preload-content">
+      <div id="dento-load"></div>
+    </div>
+  </div>
+    <!-- ***** Header Area Start ***** -->
+    <header class="header-area">
+      <!-- Top Header Area -->
+      <div class="top-header-area">
+        <div class="container h-100">
+          <div class="row h-100 align-items-center">
+            <!-- Top Content -->
+            <div class="col-6 col-md-9 col-lg-8">
+              <div class="top-header-content">
+                <a href="https://www.google.com/maps/dir//step+by+step+school+noida+address+maps/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x390ce6281d06e50d:0x1604ff30bb8d2595?sa=X&ved=2ahUKEwjTtIC-oKTpAhXS73MBHUKuDcoQ9RcwFnoECA8QGA" data-toggle="tooltip" data-placement="bottom" title="A-10 Sector- 132 Taj Expressway Noida"><i class="fa fa-map-marker"></i> <span>A-10 Sector- 132 Taj Expressway Noida</span></a>
+                <a href="#" data-toggle="tooltip" data-placement="bottom" title="Manavjain1104@gmail.com"><i class="fa fa-envelope"></i> <span>Manavjain1104@gmail.com</span></a>
+              </div>
+            </div>
+            <!-- Top Header Social Info -->
+            <div class="col-6 col-md-3 col-lg-4">
+              <div class="top-header-social-info text-right">
+                <a href="#" data-toggle="tooltip" data-placement="bottom" title="Facebook"><i class="fa fa-facebook"></i></a>
+                <a href="#" data-toggle="tooltip" data-placement="bottom" title="Twitter"><i class="fa fa-twitter"></i></a>
+                <a href="#" data-toggle="tooltip" data-placement="bottom" title="Google Plus"><i class="fa fa-google-plus"></i></a>
+                <a href="#" data-toggle="tooltip" data-placement="bottom" title="Linkedin"><i class="fa fa-linkedin"></i></a>
+                <a href="#" data-toggle="tooltip" data-placement="bottom" title="Pinterest"><i class="fa fa-pinterest"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Top Header End -->
+
+      <!-- Main Header Start -->
+      <div class="main-header-area">
+        <div class="classy-nav-container breakpoint-off">
+          <div class="container">
+            <!-- Classy Menu -->
+            <nav class="classy-navbar justify-content-between" id="dentoNav">
+
+              <!-- Logo -->
+              <a class="nav-brand" href=""><img src="{{url_for('static', filename='website/img/core-img/logo.png')}}" alt=""></a>
+
+              <!-- Navbar Toggler -->
+              <div class="classy-navbar-toggler">
+                <span class="navbarToggler"><span></span><span></span><span></span></span>
+              </div>
+
+              <!-- Menu -->
+              <div class="classy-menu">
+
+                <!-- Close Button -->
+                <div class="classycloseIcon">
+                  <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                </div>
+
+                <!-- Nav Start -->
+                <div class="classynav">
+                  <ul id="nav">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/about">About</a></li>
+                    <li><a href="/service">Service</a></li>
+                    <li><a href="/pricing">Products</a>
+                      <ul class="dropdown">
+                        <li><a href="/phones">- Phones</a></li>
+                        <li><a href="/laptops">- Laptops</a></li>
+                        <li><a href="">- Others</a></li>
+                      </ul>
+                    </li>
+                    <li><a>Add a Device</a>
+                      <ul class="dropdown">
+                        <li><a href="/add">Add a Device</a></li>
+                        <li><a href="/login">Administrator Login</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="/blog">Blog</a>
+                      <ul class="dropdown">
+                        <li><a href="">- Blog</a></li>
+                        <li><a href="/blog_details">- Blog Details</a></li>
+                        <li><a href="">- Dropdown</a>
+                          <ul class="dropdown">
+                            <li><a href="#">- Dropdown Item</a>
+                              <ul class="dropdown">
+                                <li><a href="/terminal">- Even Dropdown</a></li>
+                                <li><a href="#">- Even More</a></li>
+                              </ul>
+                            </li>
+                            <li><a href="#">- Dropdown Item</a></li>
+                          </ul>
+                        </li>
+
+                      </ul>
+                    </li>
+                    <li><a href="/contact">Contact</a></li>
+                  </ul>
+                </div>
+                <!-- Nav End -->
+              </div>
+
+              <!-- Booking Now Button -->
+              <a href="#" class="btn dento-btn booking-btn">Booking Now</a>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- ***** Header Area End ***** -->
+{% endblock Header %}
+
+{% block Tag %}
+
+  <!-- ***** Breadcrumb Area Start ***** -->
+  <div class="breadcumb-area bg-img bg-gradient-overlay" style="background-image: url({{url_for('static', filename='website/img/bg-img/12.jpg')}})">
+    <div class="container h-100">
+      <div class="row h-100 align-items-center">
+        <div class="col-12">
+          <h2 class="title">{% block banner %}{% endblock banner %}</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="breadcumb--con">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="/"><i class="fa fa-home"></i> Home</a></li>
+              <li class="breadcrumb-item active" aria-current="page">{% block subtext %}{% endblock subtext %}</li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- ***** Breadcrumb Area End ***** -->
+{% endblock Tag %}
+
+
+{% block WelcomeArea %}
+    <!-- ***** Welcome Area Start ***** -->
+    <section class="welcome-area">
+      <!-- Welcome Slides -->
+      <div class="welcome-slides owl-carousel">
+        <!-- Single Welcome Slide -->
+        <div class="welcome-welcome-slide bg-img bg-gradient-overlay jarallax" style="background-image: url({{url_for('static', filename='website/img/bg-img/1.jpg')}});">
+          <div class="container h-100">
+            <div class="row h-100 align-items-center">
+              <div class="col-12">
+                <!-- Welcome Text -->
+                <div class="welcome-text text-center">
+                  <h2 data-animation="fadeInUp" data-delay="100ms">We Believe Everyone Should Be Able To Easily Decide On their Technological Needs</h2>
+                  <p data-animation="fadeInUp" data-delay="300ms">Shopping for tech doesn't have to be tough. That's why we're here to simplify the process for you.</p>
+                  <div class="welcome-btn-group">
+                    <a href="" class="btn dento-btn mx-2" data-animation="fadeInUp" data-delay="500ms">Get Started</a>
+                    <a href="" class="btn dento-btn mx-2 active" data-animation="fadeInUp" data-delay="700ms">Contact Us</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Single Welcome Slide -->
+        <div class="welcome-welcome-slide bg-img bg-gradient-overlay jarallax" style="background-image: url({{url_for('static', filename='website/img/bg-img/2.jpg')}})">
+          <div class="container h-100">
+            <div class="row h-100 align-items-center">
+              <div class="col-12">
+                <!-- Welcome Text -->
+                <div class="welcome-text text-center">
+                  <h2 data-animation="fadeInDown" data-delay="100ms">Can't Decide What To Get Your Loved Ones?</h2>
+                  <p data-animation="fadeInDown" data-delay="300ms">Luckily, we're here to help.</p>
+                  <div class="welcome-btn-group">
+                    <a href="" class="btn dento-btn mx-2" data-animation="fadeInDown" data-delay="500ms">Get Started</a>
+                    <a href="" class="btn dento-btn mx-2 active" data-animation="fadeInDown" data-delay="700ms">Contact Us</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ***** Welcome Area End ***** -->
+{% endblock WelcomeArea %}
+
+{% block AboutContent %}
+    <!-- ****** About Us Area Start ******* -->
+      <section class="dento-about-us-area section-padding-100-0">
+        <div class="container">
+          <div class="row align-items-center">
+            <!-- About Us Thumbnail -->
+            <div class="col-12 col-md-6">
+              <div class="about-us-thumbnail mb-50">
+                <img src="{{url_for('static', filename='website/img/bg-img/15.jpg')}}">
+              </div>
+            </div>
+            <!-- About Content -->
+            <div class="col-12 col-md-6">
+              <div class="about-us-content mb-50">
+                <!-- Section Heading -->
+                <div class="section-heading">
+                  <h2>About Us</h2>
+                  <div class="line"></div>
+                </div>
+                <p>The world of tech can be very tough to navigate for the uninitiated. That's why we try to provide a seamless and convenient way for consumers, who are new to it, with a one-stop shop for all their electronic needs without having to delve into the specifications for every product if they don't want to.</p>
+
+                <!-- Single Skills Area -->
+                <div class="single-skills-area mt-30">
+                  <h6>Was Able To Help</h6>
+                  <div id="bar1" class="barfiller">
+                    <span class="tip"></span>
+                    <span class="fill" data-percentage="97"></span>
+                  </div>
+                </div>
+
+                <!-- Single Skills Area -->
+                <div class="single-skills-area mt-30">
+                  <h6>Better Pricing Than The Competition</h6>
+                  <div id="bar2" class="barfiller">
+                    <span class="tip"></span>
+                    <span class="fill" data-percentage="87"></span>
+                  </div>
+                </div>
+
+                <!-- Single Skills Area -->
+                <div class="single-skills-area mt-30">
+                  <h6>Friendly Staff</h6>
+                  <div id="bar3" class="barfiller">
+                    <span class="tip"></span>
+                    <span class="fill" data-percentage="85"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- ****** About Us Area End ****** -->
+    <div class="container">
+      <div class="dento-border clearfix"></div>
+    </div>
+
+    <!-- Cool Facts Area Start -->
+    <section class="dento-cta-area">
+      <div class="container">
+        <div class="row">
+          <!-- Cool Facts Area -->
+          <div class="col-12 col-sm-6 col-lg-3">
+            <div class="single-cta text-center mt-50 mb-100">
+              <i class="icon_search-2"></i>
+              <h2><span class="counter">1200</span>+</h2>
+              <h5>Queries Resolved</h5>
+            </div>
+          </div>
+
+          <!-- Cool Facts Area -->
+          <div class="col-12 col-sm-6 col-lg-3">
+            <div class="single-cta text-center mt-50 mb-100">
+              <i class="icon_cart_alt"></i>
+              <h2><span class="counter">700</span>+</h2>
+              <h5>Purchases Facilitated</h5>
+            </div>
+          </div>
+
+          <!-- Cool Facts Area -->
+          <div class="col-12 col-sm-6 col-lg-3">
+            <div class="single-cta text-center mt-50 mb-100">
+              <i class="icon_like"></i>
+              <h2><span class="counter">1000</span>+</h2>
+              <h5>Satisfied Customers</h5>
+            </div>
+          </div>
+
+          <!-- Cool Facts Area -->
+          <div class="col-12 col-sm-6 col-lg-3">
+            <div class="single-cta text-center mt-50 mb-100">
+              <i class="icon_archive_alt"></i>
+              <h2><span class="counter">200</span>+</h2>
+              <h5>Catalogued Devices</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Cool Facts Area End -->
+{% endblock AboutContent %}
+
+{% block content %}
+
+
+
+{% endblock content %}
+
+{% block Pricing %}
+  <!-- ***** Dento Pricing Table Area Start ***** -->
+  </table>
+  <section class="dento-pricing-table-area mt-50 section-padding-0-100">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="dento-price-table table-responsive">
+            <table class="table table-borderless mb-0">
+              <thead>
+                <tr>
+                  <th scope="col">Name</th>
+                  <th scope="col">Company</th>
+                  <th scope="col">Date of Launch</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for i in results %}
+                  <tr>
+                    <th scope="row"><li><a href="/"></a></li>{{i[1]}}</th>
+                    <td>OnePlus</td>
+                    <td>April 24, 2020</td>
+                  </tr>
+                <tr>
+                {% endfor %}
+                  <th scope="row"><li><a href="/">OnePlus 8</a></li></th>
+                  <td>OnePlus</td>
+                  <td>April 24, 2020</td>
+                </tr>
+                <tr>
+                  <th scope="row">Teeth Whitening Service at Dental Clinic</th>
+
+                  <td>1 times</td>
+                  <td>$100.00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="col-12">
+          <div class="more-btn text-center mt-50">
+            <a href="#" class="btn dento-btn">Read More <i class="fa fa-angle-double-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ***** Dento Pricing Table Area End ***** -->
+{% endblock Pricing %}
+
+{% block Consultations %}
+  <!-- Book An Oppointment Area Start -->
+  <section class="book-an-oppointment-area section-padding-100 bg-img bg-gradient-overlay jarallax clearfix" style="background-image: url({{url_for('static', filename='website/img/bg-img/12.jpg')}})">
+    <div class="container">
+      <div class="row">
+        <!-- Section Heading -->
+        <div class="col-12">
+          <div class="section-heading text-center white">
+            <h2>Book A Consultation</h2>
+            <div class="line"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12">
+          <!-- Appointment Form -->
+          <div class="appointment-form">
+            <form action="#" method="post">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group mb-30">
+                    <input type="text" name="your-name" class="form-control" placeholder="Your Name" required>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group mb-30">
+                    <input type="text" name="your-phone" class="form-control" placeholder="Your Phone" required>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group mb-30">
+                    <input type="email" name="your-email" class="form-control" placeholder="Your Email" required>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group mb-30">
+                    <input type="text" name="your-address" class="form-control" placeholder="Your Address">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group mb-30">
+                    <select name="your-scheldule" class="form-control">
+                      <option value="Choose Your Scheldule">Choose Your Scheldule</option>
+                      <option value="9 AM to 10 AM">9 AM to 10 AM</option>
+                      <option value="11 AM to 12 PM">11 AM to 12 PM</option>
+                      <option value="2 PM to 4 PM">2 PM to 4 PM</option>
+                      <option value="8 PM to 10 PM">8 PM to 10 PM</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group mb-30">
+                    <select name="your-time" class="form-control">
+                      <option value="Choose Your Time">Choose Your Scheldule</option>
+                      <option value="9 AM to 10 AM">9 AM to 10 AM</option>
+                      <option value="11 AM to 12 PM">11 AM to 12 PM</option>
+                      <option value="2 PM to 4 PM">2 PM to 4 PM</option>
+                      <option value="8 PM to 10 PM">8 PM to 10 PM</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="form-group mb-30">
+                    <textarea name="your-message" class="form-control" placeholder="Your Message"></textarea>
+                  </div>
+                </div>
+                <div class="col-12 text-center">
+                  <button type="submit" class="btn dento-btn">Booking Now</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Book An Oppointment Area End -->
+{% endblock Consultations %}
+
+{% block Reccomendations %}
+  <!-- ***** Dento Dentist Area Start ***** -->
+  <section class="dentist-area section-padding-100-0">
+    <div class="container">
+      <div class="row">
+        <!-- Section Heading -->
+        <div class="col-12">
+          <div class="section-heading text-center">
+            <h2>Top Reccomendations</h2>
+            <div class="line"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <!-- Single Dentist Area -->
+        <div class="col-12 col-sm-6 col-md-4">
+          <div class="single-dentist-area mb-100">
+            <img src="{{url_for('static', filename='website/img/bg-img/9.png')}}" alt="">
+            <!-- Dentist Content -->
+            <div class="dentist-content">
+              <!-- Social Info -->
+              <div class="dentist-social-info">
+                <a href="#"><i class="fa fa-amazon"></i></a>
+                <a href="#"><i class="fa fa-google"></i></a>
+                <a href="#"><i class="fa fa-reddit"></i></a>
+              </div>
+              <!-- Dentist Info -->
+              <div class="dentist-info bg-gradient-overlay">
+                <h5>Surface Book 3</h5>
+                <p>Best All-round Laptop</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Single Dentist Area -->
+        <div class="col-12 col-sm-6 col-md-4">
+          <div class="single-dentist-area mb-100">
+            <img src="{{url_for('static', filename='website/img/bg-img/10.png')}}" alt="">
+            <!-- Dentist Content -->
+            <div class="dentist-content">
+              <!-- Social Info -->
+              <div class="dentist-social-info">
+                <a href="#"><i class="fa fa-amazon"></i></a>
+                <a href="#"><i class="fa fa-google"></i></a>
+                <a href="#"><i class="fa fa-reddit"></i></a>
+              </div>
+              <!-- Dentist Info -->
+              <div class="dentist-info bg-gradient-overlay">
+                <h5>OnePlus 8 Pro</h5>
+                <p>Flagship At an Affordable Price</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Single Dentist Area -->
+        <div class="col-12 col-sm-6 col-md-4">
+          <div class="single-dentist-area mb-100">
+            <img src="{{url_for('static', filename='website/img/bg-img/11.png')}}" alt="">
+            <!-- Dentist Content -->
+            <div class="dentist-content">
+              <!-- Social Info -->
+              <div class="dentist-social-info">
+                <a href="#"><i class="fa fa-amazon"></i></a>
+                <a href="#"><i class="fa fa-google"></i></a>
+                <a href="#"><i class="fa fa-reddit"></i></a>
+              </div>
+              <!-- Dentist Info -->
+              <div class="dentist-info bg-gradient-overlay">
+                <h5>WH-1000X-M3</h5>
+                <p>Best Noise Cancelling Headphones on the Market</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ***** Dento Dentist Area End ***** -->
+{% endblock Reccomendations %}
+
+{% block Testimonials %}
+  <!-- ***** Testimonials Area Start ***** -->
+  <section class="testimonials-area section-padding-100 bg-img bg-gradient-overlay jarallax clearfix" style="background-image: url({{url_for('static', filename='website/img/bg-img/7.jpg')}})">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <!-- Testimonials Slides -->
+          <div class="testimonials-slides owl-carousel">
+            <!-- Single Testimonials Slide -->
+            <div class="single-testimonial-slide d-flex align-items-center">
+              <!-- Thumbnail -->
+              <div class="testimonial-thumb">
+                <img src="{{url_for('static', filename='website/img/bg-img/8.jpg')}}" alt="">
+              </div>
+              <!-- Content -->
+              <div class="testimonial-content">
+                <h5>“I'd been reluctant to do tech shopping for my family for years due to bad experiences. I used to always end up buying something a few generations old or sometimes even a fake. But now with Tech Troubles' excellent advice, I am now confidently able to shop, knowing my choices satify my needs.”</h5>
+                <h6>Arron Ramsey</h6>
+                <p>Customer</p>
+              </div>
+            </div>
+
+            <!-- Single Testimonials Slide -->
+            <div class="single-testimonial-slide d-flex align-items-center">
+              <!-- Thumbnail -->
+              <div class="testimonial-thumb">
+                <img src="{{url_for('static', filename='website/img/bg-img/8.jpg')}}" alt="">
+              </div>
+              <!-- Content -->
+              <div class="testimonial-content">
+                <h5>I'd been reluctant to do tech shopping for my family for years due to bad experiences. I used to always end up buying something a few generations old or sometimes even a fake. But now with Tech Troubles' excellent advice, I am now confidently able to shop, knowing my choices satify my needs</h5>
+                <h6>Arron Ramsey</h6>
+                <p>Customert</p>
+              </div>
+            </div>
+
+            <!-- Single Testimonials Slide -->
+            <div class="single-testimonial-slide d-flex align-items-center">
+              <!-- Thumbnail -->
+              <div class="testimonial-thumb">
+                <img src="{{url_for('static', filename='website/img/bg-img/8.jpg')}}" alt="">
+              </div>
+              <!-- Content -->
+              <div class="testimonial-content">
+                <h5>I'd been reluctant to do tech shopping for my family for years due to bad experiences. I used to always end up buying something a few generations old or sometimes even a fake. But now with Tech Troubles' excellent advice, I am now confidently able to shop, knowing my choices satify my needs</h5>
+                <h6>Arron Ramsey</h6>
+                <p>Customer</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ***** Testimonials Area End ***** -->
+{% endblock Testimonials %}
+
+{% block TheLatestNews %}
+  <!-- ***** Blog Area Start ***** -->
+  <section class="dento-blog-area section-padding-100-0 clearfix">
+    <div class="container">
+      <div class="row">
+        <!-- Section Heading -->
+        <div class="col-12">
+          <div class="section-heading text-center">
+            <h2>The Latest News</h2>
+            <div class="line"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <!-- Single Blog Item -->
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="single-blog-item mb-100">
+            <a href="/blog_details">
+              <img src="{{url_for('static', filename='website/img/bg-img/4.jpg')}}" alt="">
+            </a>
+            <!-- Blog Content -->
+            <div class="blog-content">
+              <a href="/blog_details" class="post-title">The best camera on a phone under $400</a>
+              <p>The new iphone SE from Apple contains the latest processor the same as that of the iPhone 11 with a camera never seen before in this price range...</p>
+              <div class="post-meta">
+                <a href="#"><i class="icon_clock_alt"></i> 28 March 2020</a>
+                <a href="#"><i class="icon_chat_alt"></i> 3 Comments</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Single Blog Item -->
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="single-blog-item mb-100">
+            <a href="/blog_details">
+              <img src="{{url_for('static', filename='website/img/bg-img/5.jpg')}}" alt="">
+            </a>
+            <!-- Blog Content https://www.cnet.com/news/pixel-4a-and-4a-xl-rumors-5g-headphone-jack-may-22-release-date-android-11-beta/ -->
+            <div class="blog-content">
+              <a href="/blog_details" class="post-title">Pixel 4A and 4A XL rumors: 5G, May 22 release date, Android 11 and more</a>
+              <p>The Pixel 3A and 3A XL were the Pixel phones' first foray into a more affordable price bracket....</p>
+              <div class="post-meta">
+                <a href="#"><i class="icon_clock_alt"></i> 12th Feb 2020</a>
+                <a href="#"><i class="icon_chat_alt"></i> 12 Comments</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Single Blog Item -->
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="single-blog-item mb-100">
+            <a href="/blog_details">
+              <img src="{{url_for('static', filename='website/img/bg-img/6.jpg')}}" alt="">
+            </a>
+            <!-- Blog Content -->
+            <div class="blog-content">
+              <a href="/blog_details" class="post-title">Surface Book 3 will never be the most powerful laptop you've ever seen — here's why</a>
+              <p>Microsoft recently revealed the new Surface Book 3, the first refresh since late 2017. The powerful 2-in-1 gets the latest Intel and NVIDIA silicon...</p>
+              <div class="post-meta">
+                <a href="#"><i class="icon_clock_alt"></i> 7th May 2020</a>
+                <a href="#"><i class="icon_chat_alt"></i> 5 Comments</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ***** Blog Area End ***** -->
+{% endblock TheLatestNews %}
+
+{% block Footer %}
+  <!-- ***** Footer Area Start ***** -->
+    <footer class="footer-area bg-img bg-gradient-overlay" style="background-image: url({{url_for('static', filename='website/img/bg-img/3.jpg')}})">
+      <div class="container">
+        <div class="row">
+          <!-- Single Footer Widget -->
+          <div class="col-12 col-sm-6 col-lg-4">
+            <div class="single-footer-widget">
+              <a href="" class="d-block mb-4"><img src="{{url_for('static', filename='website/img/core-img/logoW.png')}}" alt=""></a>
+              <p>The world of tech can be very tough to navigate for the uninitiated. That's why we try to provide simplify it.</p>
+              <div class="footer-contact">
+                <p><i class="icon_pin"></i> A-10 Sector- 132 Taj Expressway Noida</p>
+                <p><i class="icon_phone"></i> +91 8447696875 </p>
+                <p><i class="icon_mail"></i> Manavjain1104@gmail.com</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Single Footer Widget -->
+          <div class="col-12 col-sm-6 col-lg">
+            <div class="single-footer-widget">
+              <!-- Widget Title -->
+              <h5 class="widget-title">Opening Hours</h5>
+
+              <!-- Opening Hours -->
+              <ul class="opening-hours">
+                <li><span>Mon-Wed</span> <span>8.00-18.00</span></li>
+                <li><span>Thu-Fri</span> <span>8.00-17.00</span></li>
+                <li><span>Sat</span> <span>9.00-17.00</span></li>
+                <li><span>Sun</span> <span>10.00-17.00</span></li>
+                <li><span>Holiday</span> <span>Closed</span></li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Single Footer Widget -->
+          <div class="col-12 col-sm-6 col-lg">
+            <div class="single-footer-widget">
+              <!-- Widget Title -->
+              <h5 class="widget-title">Quick Link</h5>
+
+              <!-- Quick Links Nav -->
+              <nav>
+                <ul class="quick-links">
+                  <li><a href="#">About</a></li>
+                  <li><a href="#">FAQs</a></li>
+                  <li><a href="#">Contact</a></li>
+                  <li><a href="#">Policy</a></li>
+                  <li><a href="#">News</a></li>
+                  <li><a href="#">Advisors</a></li>
+                  <li><a href="#">Careers</a></li>
+                  <li><a href="#">Dentist</a></li>
+                  <li><a href="#">Services</a></li>
+                  <li><a href="#">Legals</a></li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+
+          <!-- Single Footer Widget -->
+          <div class="col-12 col-sm-6 col-lg">
+            <div class="single-footer-widget">
+              <!-- Widget Title -->
+              <h5 class="widget-title">Newsletter</h5>
+
+              <p>We will send out weekly newest article and some great offers</p>
+              <!-- Newsletter Form -->
+              <div class="footer-newsletter-form">
+                <form action="#" method="post">
+                  <input type="email" name="nl-email" value="" placeholder="Email Address">
+                  <button type="submit"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+                </form>
+              </div>
+
+              <!-- Social Info -->
+              <div class="footer-social-info">
+                <a href="#" data-toggle="tooltip" data-placement="top" title="Facebook"><i class="fa fa-facebook"></i></a>
+                <a href="#" data-toggle="tooltip" data-placement="top" title="Twitter"><i class="fa fa-twitter"></i></a>
+                <a href="#" data-toggle="tooltip" data-placement="top" title="Google Plus"><i class="fa fa-google-plus"></i></a>
+                <a href="#" data-toggle="tooltip" data-placement="top" title="Linkedin"><i class="fa fa-linkedin"></i></a>
+                <a href="#" data-toggle="tooltip" data-placement="top" title="Pinterest"><i class="fa fa-pinterest"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Copywrite Area -->
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="copywrite-content">
+              <p>
+  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved </a>
+  </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- ***** Footer Area End ***** -->
+{% endblock Footer %}
+
+{% block JS %}
+  <!-- ******* All JS ******* -->
+  <!-- jQuery js -->
+  <script src="{{url_for('static', filename='website/js/jquery.min.js')}}"></script>
+  <!-- Popper js -->
+  <script src="{{url_for('static', filename='website/js/popper.min.js')}}"></script>
+  <!-- Bootstrap js -->
+  <script src="{{url_for('static', filename='website/js/bootstrap.min.js')}}"></script>
+  <!-- All js -->
+  <script src="{{url_for('static', filename='website/js/dento.bundle.js')}}"></script>
+  <!-- Active js -->
+  <script src="{{url_for('static', filename='website/js/default-assets/active.js')}}"></script>
+{% endblock JS %}
+
+</body>
+
+</html>

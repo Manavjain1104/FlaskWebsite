@@ -1,0 +1,118 @@
+{% extends 'base.html'%}
+
+{% block banner %} Add a Device {% endblock banner%}
+{% block subtext %} Add a Device{% endblock subtext %}
+
+{% block WelcomeArea %}
+{% endblock WelcomeArea %}
+
+{% block AboutContent %}
+{% endblock AboutContent %}
+
+{% block content %}
+
+  
+  <!-- ***** Contact Area Start ***** -->
+  {% if user_name %}
+    <center>
+      <h2>Thanks {{ user_name }}!</h2>
+      <p> We'll review the details given and add it to out catalogue as soon as possible</p>
+    </center>
+    <br/><br/><br/>
+    {% else %}
+      <section class="dento-contact-area mt-50 mb-100">
+        <div class="container">
+          <div class="row">
+            <!-- Contact Form -->
+            <div class="col-12 col-md-8">
+              <div class="contact-form">
+                <!-- Section Heading -->
+                <div class="section-heading">
+                  <h2>Add a Phone</h2>
+                  <h10>Please enter the details of the phone you want to enter. We will add it to our catalogue shortly.</h10>
+                  <div class="longline"></div>
+                </div>
+                <!-- Form -->
+                <form action="/add" method="POST">
+                  <div class="row">
+                    <div class="col-lg-6">
+                      <input type="text" name="user-name" class="form-control mb-30" placeholder="Your Name">
+                    </div>
+                    <div class="col-lg-6">
+                      <input type="text" name="phone-name" class="form-control mb-30" placeholder="phone Name">
+                    </div>
+                    <div class="col-lg-6">
+                      <input type="text" name="phone-manufacturer" class="form-control mb-30" placeholder="Manufacturer Name">
+                    </div>
+                    <div class="col-lg-6">
+                      <input type="text" name="phone-date" class="form-control mb-30" placeholder="Date of launch (YYYY-MM-DD)">
+                    </div>
+                    <div class="col-12">
+                      <button type="submit" class="btn dento-btn">Confirm</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="dento-contact-area mt-50 mb-100">
+        <div class="container">
+          <div class="row">
+            <!-- Contact Form -->
+            <div class="col-12 col-md-8">
+              <div class="contact-form">
+                <!-- Section Heading -->
+                <div class="section-heading">
+                  <h2>Add a Laptop</h2>
+                  <h10>Please enter the details of the laptop you want to enter. We will add it to our catalogue shortly.</h10>
+                  <div class="longline"></div>
+                </div>
+                <!-- Form -->
+                <form action="/add" method="POST">
+                  <div class="row">
+                    <div class="col-lg-6">
+                      <input type="text" name="user-name" class="form-control mb-30" placeholder="Your Name">
+                    </div>
+                    <div class="col-lg-6">
+                      <input type="text" name="laptop-name" class="form-control mb-30" placeholder="laptop Name">
+                    </div>
+                    <div class="col-lg-6">
+                      <input type="text" name="laptop-manufacturer" class="form-control mb-30" placeholder="Manufacturer Name">
+                    </div>
+                    <div class="col-lg-6">
+                      <input type="text" name="laptop-date" class="form-control mb-30" placeholder="Date of launch (YYYY-MM-DD)">
+                    </div>
+                    <div class="col-12">
+                      <button type="submit" class="btn dento-btn">Confirm</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    {% endif %}
+  <!-- ***** Contact Area End ***** -->
+
+{% endblock %}
+
+{% block Pricing %}
+{% endblock Pricing %}
+
+{% block Consultations %}
+{% endblock Consultations %}
+
+{% block Reccomendations %}
+{% endblock Reccomendations %}
+
+{% block Testimonials %}
+{% endblock Testimonials %}
+
+<!--
+<div class="col-12">
+                      <textarea name="message" class="form-control mb-30" placeholder="Your Message"></textarea>
+                    </div>
+-->

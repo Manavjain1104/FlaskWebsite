@@ -1,0 +1,72 @@
+{% extends 'base.html'%}
+
+
+{% block banner %} Laptops {% endblock banner%}
+{% block subtext %} Laptops {% endblock subtext %}
+
+{% block WelcomeArea %}
+{% endblock WelcomeArea %}
+
+{% block AboutContent %}
+{% endblock AboutContent %}
+
+  <!-- ***** Dento Pricing Table Area End ***** -->
+
+
+
+{% block content %}
+
+
+{% endblock content %}
+
+{% block Pricing %}
+
+  </table>
+  <section class="dento-pricing-table-area mt-50 section-padding-0-100">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="dento-price-table table-responsive">
+            <table class="table table-borderless mb-0">
+              <thead>
+                <tr>
+                  <th scope="col">Name</th>
+                  <th scope="col">Company</th>
+                  <th scope="col">Date of Launch</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for item in data %}
+                  <tr>
+                    <th scope="row"><li><a href="https://www.amazon.in/s?k={{item[1]}}&ref=nb_sb_noss_2">{{item[1]}}</a></li></th>
+                    <td>{{item[2]}}</td>
+                    <td>{{item[3]}}</td>
+                  </tr>
+                {% endfor %}
+			 </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+    <div class="col-12">
+      <div class="more-btn text-center mt-50">
+        <a href="#" class="btn dento-btn">Read More <i class="fa fa-angle-double-right"></i></a>
+      </div>
+    </div>
+
+
+{% endblock Pricing %}
+
+{% block Consultations %}
+{% endblock Consultations %}
+
+{% block Reccomendations %}
+{% endblock Reccomendations %}
+
+{% block Testimonials %}
+{% endblock Testimonials %}
+
+{% block TheLatestNews %}
+{% endblock TheLatestNews %}
