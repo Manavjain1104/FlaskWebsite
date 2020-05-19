@@ -21,13 +21,15 @@
 
 {% block Pricing %}
 
-  </table>
+  <div class="container"> 
+    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for the product you'd like to see..">
+  </div>
   <section class="dento-pricing-table-area mt-50 section-padding-0-100">
     <div class="container">
       <div class="row">
         <div class="col-12">
           <div class="dento-price-table table-responsive">
-            <table class="table table-borderless mb-0">
+            <table id="myTable" class="table table-borderless mb-0">
               <thead>
                 <tr>
                   <th scope="col">Name</th>
@@ -55,6 +57,31 @@
         <a href="#" class="btn dento-btn">Read More <i class="fa fa-angle-double-right"></i></a>
       </div>
     </div>
+
+
+<script>
+function myFunction() {
+  // Declare variables
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+
+  // Loop through all table rows, and hide those who don't match the search query
+  for (i = 1; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("th")[0];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }
+  }
+}
+</script>
 
 
 {% endblock Pricing %}
