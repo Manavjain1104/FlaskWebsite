@@ -31,19 +31,85 @@ def pricing():
 
 @app.route('/phones', methods=['POST', 'GET'])
 def phones():
-	cur = mysql.connection.cursor()
-	#cur.execute('''Create table example (id Integer, name Varchar(20))''')
-	cur.execute('''SELECT Sno, Name, Company, DATE_FORMAT(Date, "%M %e %Y") as date FROM Phone;''')
-	data=cur.fetchall()
-	return render_template("phones.html", data=data)	
+	if request.method == "POST":
+		try:
+			NameFilter = request.form.get('NameFilter')
+			cur = mysql.connection.cursor()
+			cur.execute(f'''SELECT Sno, Name, Company, DATE_FORMAT(Date, "%M %e %Y") as date FROM Phone WHERE upper(name) like \'%{NameFilter.upper()}%\' ;''')
+			data=cur.fetchall()
+			return render_template("phones.html", data=data)
+		except:
+			pass	
+			try:
+				BrandFilter = request.form.get('BrandFilter')
+				cur = mysql.connection.cursor()
+				cur.execute(f'''SELECT Sno, Name, Company, DATE_FORMAT(Date, "%M %e %Y") as date FROM Phone WHERE upper(company) like \'%{BrandFilter.upper()}%\' ;''')
+				data=cur.fetchall()
+				return render_template("phones.html", data=data)
+			except:
+				pass
+		else:
+			try:
+				BrandFilter = request.form.get('BrandFilter')
+				cur = mysql.connection.cursor()
+				cur.execute(f'''SELECT Sno, Name, Company, DATE_FORMAT(Date, "%M %e %Y") as date FROM Phone WHERE upper(company) like \'%{BrandFilter.upper()}%\' ;''')
+				data=cur.fetchall()
+				return render_template("phones.html", data=data)
+			except:
+				return render_template("phones.html", data=data)
+			else:
+				BrandFilter = request.form.get('BrandFilter')
+				cur = mysql.connection.cursor()
+				cur.execute(f'''SELECT Sno, Name, Company, DATE_FORMAT(Date, "%M %e %Y") as date FROM Phone WHERE upper(name) like \'%{BrandFilter.upper()}%\' and  upper(company) like \'%{BrandFilter.upper()}%\' ;''')
+				data=cur.fetchall()
+				return render_template("phones.html", data=data)
+	else:
+		cur = mysql.connection.cursor()
+		#cur.execute('''Create table example (id Integer, name Varchar(20))''')
+		cur.execute('''SELECT Sno, Name, Company, DATE_FORMAT(Date, "%M %e %Y") as date FROM Phone order by name;''')
+		data=cur.fetchall()
+		return render_template("phones.html", data=data)	
 
 @app.route('/laptops', methods=['POST', 'GET'])
 def laptops():
-	cur = mysql.connection.cursor()
-	#cur.execute('''Create table example (id Integer, name Varchar(20))''')
-	cur.execute('''SELECT Sno, Name, Company, DATE_FORMAT(Date, "%M %e %Y") as date FROM Laptop;''')
-	data=cur.fetchall()
-	return render_template("laptops.html", data=data)	
+	if request.method == "POST":
+		try:
+			NameFilter = request.form.get('NameFilter')
+			cur = mysql.connection.cursor()
+			cur.execute(f'''SELECT Sno, Name, Company, DATE_FORMAT(Date, "%M %e %Y") as date FROM laptop WHERE upper(name) like \'%{NameFilter.upper()}%\' ;''')
+			data=cur.fetchall()
+			return render_template("laptops.html", data=data)
+		except:
+			pass	
+			try:
+				BrandFilter = request.form.get('BrandFilter')
+				cur = mysql.connection.cursor()
+				cur.execute(f'''SELECT Sno, Name, Company, DATE_FORMAT(Date, "%M %e %Y") as date FROM laptop WHERE upper(company) like \'%{BrandFilter.upper()}%\' ;''')
+				data=cur.fetchall()
+				return render_template("laptops.html", data=data)
+			except:
+				pass
+		else:
+			try:
+				BrandFilter = request.form.get('BrandFilter')
+				cur = mysql.connection.cursor()
+				cur.execute(f'''SELECT Sno, Name, Company, DATE_FORMAT(Date, "%M %e %Y") as date FROM laptop WHERE upper(company) like \'%{BrandFilter.upper()}%\' ;''')
+				data=cur.fetchall()
+				return render_template("laptops.html", data=data)
+			except:
+				return render_template("laptops.html", data=data)
+			else:
+				BrandFilter = request.form.get('BrandFilter')
+				cur = mysql.connection.cursor()
+				cur.execute(f'''SELECT Sno, Name, Company, DATE_FORMAT(Date, "%M %e %Y") as date FROM laptop WHERE upper(name) like \'%{BrandFilter.upper()}%\' and  upper(company) like \'%{BrandFilter.upper()}%\' ;''')
+				data=cur.fetchall()
+				return render_template("laptops.html", data=data)
+	else:
+		cur = mysql.connection.cursor()
+		#cur.execute('''Create table example (id Integer, name Varchar(20))''')
+		cur.execute('''SELECT Sno, Name, Company, DATE_FORMAT(Date, "%M %e %Y") as date FROM laptop order by name;''')
+		data=cur.fetchall()
+		return render_template("laptops.html", data=data)	
 	
 @app.route('/add', methods=['POST', 'GET'])
 def add():

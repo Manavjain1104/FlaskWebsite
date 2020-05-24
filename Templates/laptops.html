@@ -20,10 +20,6 @@
 {% endblock content %}
 
 {% block Pricing %}
-
-  <div class="container"> 
-    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for the product you'd like to see..">
-  </div>
   <section class="dento-pricing-table-area mt-50 section-padding-0-100">
     <div class="container">
       <div class="row">
@@ -45,43 +41,32 @@
                     <td>{{item[3]}}</td>
                   </tr>
                 {% endfor %}
-			 </tbody>
+			       </tbody>
             </table>
           </div>
         </div>
       </div>
     </div>
-  </section>
-    <div class="col-12">
+    <br>
+    <br>
+    <div class="container"> 
+      <div class="col-12">
+      <form method="post" class="search" >
+        <div >
+          <input class="form-control mb-30" type="text" name="NameFilter" onblur="if(this.value=='')this.value='Search by Phone Name'; "onfocus="if(this.value=='Search by Phone Name')this.value='';" value="Search by Phone Name">
+        </div>
+      </form>
+      <form method="post" class="search" >
+        <div >
+          <input class="form-control mb-30" type="text" name="BrandFilter" onblur="if(this.value=='')this.value='Search by Company Name'; "onfocus="if(this.value=='Search by Company Name')this.value='';" value="Search by Company Name">
+        </div>
+      </form>
       <div class="more-btn text-center mt-50">
-        <a href="#" class="btn dento-btn">Read More <i class="fa fa-angle-double-right"></i></a>
+        <a href="/phones" class="btn dento-btn">Reset Filters</a>
       </div>
     </div>
-
-
-<script>
-function myFunction() {
-  // Declare variables
-  var input, filter, table, tr, td, i, txtValue;
-  input = document.getElementById("myInput");
-  filter = input.value.toUpperCase();
-  table = document.getElementById("myTable");
-  tr = table.getElementsByTagName("tr");
-
-  // Loop through all table rows, and hide those who don't match the search query
-  for (i = 1; i < tr.length; i++) {
-    td = tr[i].getElementsByTagName("th")[0];
-    if (td) {
-      txtValue = td.textContent || td.innerText;
-      if (txtValue.toUpperCase().indexOf(filter) > -1) {
-        tr[i].style.display = "";
-      } else {
-        tr[i].style.display = "none";
-      }
-    }
-  }
-}
-</script>
+  </div>
+  </section>
 
 
 {% endblock Pricing %}
