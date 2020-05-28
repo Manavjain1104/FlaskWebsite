@@ -21,6 +21,7 @@
 
 {% block Pricing %}
 
+
   <section class="dento-pricing-table-area mt-50 section-padding-0-100">
     <div class="container">
       <div class="row">
@@ -37,9 +38,11 @@
               <tbody>
                 {% for item in data %}
                   <tr>
-                    <th scope="row"><li><a href="https://www.amazon.in/s?k={{item[1]}}&ref=nb_sb_noss_2">{{item[1]}}</a></li></th>
-                    <td>{{item[2]}}</td>
-                    <td>{{item[3]}}</td>
+                    <form method="post" class='btn'>
+                      <th scope="row"><li><a href="/phonedetails"><button name="DetailsRequest" class='btn' type="submit" value="{{item[0]}}">{{item[1]}}</button></a></li></th>
+                      <td>{{item[2]}}</td>
+                      <td>{{item[3]}}</td>
+                    </form>
                   </tr>
                 {% endfor %}
 			        </tbody>
@@ -53,14 +56,10 @@
     <div class="container"> 
       <div class="col-12">
       <form method="post" class="search" >
-        <div >
           <input class="form-control mb-30" type="text" name="NameFilter" onblur="if(this.value=='')this.value='Search by Phone Name'; "onfocus="if(this.value=='Search by Phone Name')this.value='';" value="Search by Phone Name">
-        </div>
       </form>
       <form method="post" class="search" >
-        <div >
           <input class="form-control mb-30" type="text" name="BrandFilter" onblur="if(this.value=='')this.value='Search by Company Name'; "onfocus="if(this.value=='Search by Company Name')this.value='';" value="Search by Company Name">
-        </div>
       </form>
       <div class="more-btn text-center mt-50">
         <a href="/phones" class="btn dento-btn">Reset Filters</a>

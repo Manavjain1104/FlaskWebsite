@@ -1,6 +1,18 @@
 from flask import Flask, render_template, request, redirect, url_for, request
 from flask_mysqldb import MySQL
+import requests
+from fake_useragent import UserAgent
+from bs4 import BeautifulSoup
+import urllib
+import bs4
+links = []
+Name = []
+ListInfo = []
+ListTitle = []
+RefInfo=[]
+RefTitle = []
 
+PhoneSpecifications=['Sno','Name','Announced','Dimensions','Weight','Build','Size','Resolution','Protection','OS','Chipset','Internal','Sensors','Colors','Price']
 app = Flask(__name__)
 
 #MySQL configuration
@@ -11,7 +23,6 @@ app.config['MYSQL_DB'] = 'Project2020'
 '''app.config[]'''
 mysql = MySQL()
 mysql.init_app(app)
-
 
 @app.route('/')
 def home():
@@ -47,7 +58,16 @@ def phones():
 				data=cur.fetchall()
 				return render_template("phones.html", data=data)
 			except:
-				pass
+				try:
+					DetailsRequest = request.form.get('DetailsRequest')
+				except:
+					return render_template("phonedetails.html", data=data)
+				else:
+					cur = mysql.connection.cursor()
+					cur.execute(f'''SELECT * FROM PhoneDetails where Sno=\'{DetailsRequest}\' order by name;''')
+					data=cur.fetchone()
+					Len=len(data)
+					return render_template("phonedetails.html", DetailsRequest=DetailsRequest, data=data,PhoneSpecifications=PhoneSpecifications, Len=Len)
 		else:
 			try:
 				BrandFilter = request.form.get('BrandFilter')
@@ -66,9 +86,24 @@ def phones():
 	else:
 		cur = mysql.connection.cursor()
 		#cur.execute('''Create table example (id Integer, name Varchar(20))''')
-		cur.execute('''SELECT Sno, Name, Company, DATE_FORMAT(Date, "%M %e %Y") as date FROM Phone order by name;''')
+		cur.execute('''SELECT Sno, Name, Company, DATE_FORMAT(Date, "%M %e %Y") as Date FROM Phone order by name;''')
 		data=cur.fetchall()
 		return render_template("phones.html", data=data)	
+
+
+@app.route('/phonedetails', methods=['POST', 'GET'])
+def phonedetails():
+	if request.method == "POST":
+		cur = mysql.connection.cursor()
+		cur.execute('''SELECT * FROM PhoneDetails order by name;''')
+		data=cur.fetchall()
+		return render_template("phonedetails.html", data=data)
+	elif request.method == "GET":
+		cur = mysql.connection.cursor()
+		#cur.execute('''Create table example (id Integer, name Varchar(20))''')
+		cur.execute('''SELECT Sno, Name, Company, DATE_FORMAT(Date, "%M %e %Y") as Date FROM Phone order by name;''')
+		data=cur.fetchall()
+		return redirect(url_for('phones'), code=307)
 
 @app.route('/laptops', methods=['POST', 'GET'])
 def laptops():
@@ -197,7 +232,7 @@ def menu():
 					try:
 						choice=request.form['4.']
 					except:
-						#add another try block for 2.
+						#add another try block for 5.
 						return render_template("menu.html")
 					else:
 						return render_template("laptops.html")
@@ -233,6 +268,7 @@ def addphone():
 				Q1=f'''delete from TempPhone where Sno={i};'''
 				cur.execute(Q1)
 				mysql.connection.commit()
+
 			return render_template("addphone.html",ListOfSno=ListOfSno, data=data)			
 	elif request.method == "GET":
 		return redirect(url_for('login'))
@@ -262,6 +298,9 @@ def addlaptop():
 			return render_template("addlaptop.html",ListOfSno=ListOfSno, data=data)			
 	elif request.method == "GET":
 		return redirect(url_for('login'))
+
+
+
 
 '''
 @app.route('/request', methods=['POST', 'GET'] )
