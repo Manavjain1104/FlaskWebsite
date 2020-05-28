@@ -38,8 +38,8 @@
               <tbody>
                 {% for item in data %}
                   <tr>
-                    <form method="post" class='btn'>
-                      <th scope="row"><li><a href="/phonedetails"><button name="DetailsRequest" class='btn' type="submit" value="{{item[0]}}">{{item[1]}}</button></a></li></th>
+                    <form method="post" action="/phonedetails" class='btn'>
+                      <th scope="row"><li><a><button name="DetailsRequest" action="/phonedetails" class='btn' type="submit" value="{{item[0]}}">{{item[1]}}</button></a></li></th>
                       <td>{{item[2]}}</td>
                       <td>{{item[3]}}</td>
                     </form>
@@ -57,6 +57,7 @@
       <div class="col-12">
       <form method="post" class="search" >
           <input class="form-control mb-30" type="text" name="NameFilter" onblur="if(this.value=='')this.value='Search by Phone Name'; "onfocus="if(this.value=='Search by Phone Name')this.value='';" value="Search by Phone Name">
+          <!--Try to Make Both Filters work simultaneously-->
       </form>
       <form method="post" class="search" >
           <input class="form-control mb-30" type="text" name="BrandFilter" onblur="if(this.value=='')this.value='Search by Company Name'; "onfocus="if(this.value=='Search by Company Name')this.value='';" value="Search by Company Name">
@@ -66,6 +67,53 @@
       </div>
     </div>
   </div>
+      <div class="row">
+        <!-- Section Heading -->
+        <div class="col-12">
+          <div class="section-heading text-center white">
+            <br>
+            <br>
+            <div class="line"></div>
+          </div>
+        </div>
+      </div>
+  <div class="container">
+    <center>
+    <h2>Compare</h2>
+    </center>
+    <br>
+      <div class="row">
+        <div class="col-12">
+            <form action="/compare" method="post">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group mb-30">
+                    <select name="Choice1" class="form-control">
+                      <option value="2">Choice 1</option>
+                    {% for item in data %}
+                      <option value="{{item[0]}}">{{item[1]}}</option>
+                    {% endfor %}
+                    </select>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group mb-30">
+                    <select name="Choice2" class="form-control">
+                      <option value="1">Choice 2</option>
+                    {% for item in data %}
+                      <option value="{{item[0]}}">{{item[1]}}</option>
+                    {% endfor %}
+                    </select>
+                  </div>
+                </div>
+                <div class="col-12 text-center">
+                  <button type="submit" class="btn dento-btn">Compare Now</button>
+                </div>
+              </div>
+            </form>
+        </div>
+      </div>
+    </div>
     </div>
   </section>
 

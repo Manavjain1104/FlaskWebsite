@@ -1,16 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for, request
 from flask_mysqldb import MySQL
-import requests
-from fake_useragent import UserAgent
-from bs4 import BeautifulSoup
-import urllib
-import bs4
-links = []
-Name = []
-ListInfo = []
-ListTitle = []
-RefInfo=[]
-RefTitle = []
+
 
 PhoneSpecifications=['Sno','Name','Announced','Dimensions','Weight','Build','Size','Resolution','Protection','OS','Chipset','Internal','Sensors','Colors','Price']
 app = Flask(__name__)
@@ -58,16 +48,7 @@ def phones():
 				data=cur.fetchall()
 				return render_template("phones.html", data=data)
 			except:
-				try:
-					DetailsRequest = request.form.get('DetailsRequest')
-				except:
-					return render_template("phonedetails.html", data=data)
-				else:
-					cur = mysql.connection.cursor()
-					cur.execute(f'''SELECT * FROM PhoneDetails where Sno=\'{DetailsRequest}\' order by name;''')
-					data=cur.fetchone()
-					Len=len(data)
-					return render_template("phonedetails.html", DetailsRequest=DetailsRequest, data=data,PhoneSpecifications=PhoneSpecifications, Len=Len)
+				pass
 		else:
 			try:
 				BrandFilter = request.form.get('BrandFilter')
@@ -95,12 +76,13 @@ def phones():
 def phonedetails():
 	if request.method == "POST":
 		cur = mysql.connection.cursor()
-		cur.execute('''SELECT * FROM PhoneDetails order by name;''')
-		data=cur.fetchall()
-		return render_template("phonedetails.html", data=data)
+		DetailsRequest=request.form.get('DetailsRequest')
+		cur.execute(f'''SELECT * FROM PhoneDetails where Sno={DetailsRequest};''')
+		data=cur.fetchone()
+		Len=len(data)
+		return render_template("phonedetails.html", data=data,PhoneSpecifications=PhoneSpecifications, Len=Len,DetailsRequest=DetailsRequest) 
 	elif request.method == "GET":
 		cur = mysql.connection.cursor()
-		#cur.execute('''Create table example (id Integer, name Varchar(20))''')
 		cur.execute('''SELECT Sno, Name, Company, DATE_FORMAT(Date, "%M %e %Y") as Date FROM Phone order by name;''')
 		data=cur.fetchall()
 		return redirect(url_for('phones'), code=307)
@@ -115,7 +97,6 @@ def laptops():
 			data=cur.fetchall()
 			return render_template("laptops.html", data=data)
 		except:
-			pass	
 			try:
 				BrandFilter = request.form.get('BrandFilter')
 				cur = mysql.connection.cursor()
@@ -123,7 +104,7 @@ def laptops():
 				data=cur.fetchall()
 				return render_template("laptops.html", data=data)
 			except:
-				pass
+				return render_template("laptops.html", data=data)
 		else:
 			try:
 				BrandFilter = request.form.get('BrandFilter')
@@ -141,7 +122,6 @@ def laptops():
 				return render_template("laptops.html", data=data)
 	else:
 		cur = mysql.connection.cursor()
-		#cur.execute('''Create table example (id Integer, name Varchar(20))''')
 		cur.execute('''SELECT Sno, Name, Company, DATE_FORMAT(Date, "%M %e %Y") as date FROM laptop order by name;''')
 		data=cur.fetchall()
 		return render_template("laptops.html", data=data)	
@@ -166,21 +146,38 @@ def add():
 			mysql.connection.commit()
 			return render_template("add.html", phone_name = phone_name, phone_manufacturer = phone_manufacturer, phone_date = phone_date, user_name = user_name)
 		except:
-			user_name = request.form.get('user-name')
-			laptop_name = request.form.get('laptop-name')
-			laptop_manufacturer  = request.form.get('laptop-manufacturer')
-			laptop_date = request.form.get('laptop-date')
-			cur = mysql.connection.cursor()
-			Query=f'''select max(Sno)from TempLaptop;'''
-			cur.execute(Query)
-			C=cur.fetchone()[0]
-			if C==None:
-				C=0
-			Q=f'''insert into TempLaptop
-				values({C+1},\'{laptop_name}\',\'{laptop_manufacturer}\',\'{laptop_date}\') ;'''
-			cur.execute(Q)
-			mysql.connection.commit()
-			return render_template("add.html", laptop_name = laptop_name, laptop_manufacturer = laptop_manufacturer, laptop_date = laptop_date, user_name = user_name)
+			try:
+				user_name = request.form.get('user-name')
+				laptop_name = request.form.get('laptop-name')
+				laptop_manufacturer  = request.form.get('laptop-manufacturer')
+				laptop_date = request.form.get('laptop-date')
+				cur = mysql.connection.cursor()
+				Query=f'''select max(Sno)from TempLaptop;'''
+				cur.execute(Query)
+				C=cur.fetchone()[0]
+				if C==None:
+					C=0
+				Q=f'''insert into TempLaptop
+					values({C+1},\'{laptop_name}\',\'{laptop_manufacturer}\',\'{laptop_date}\') ;'''
+				cur.execute(Q)
+				mysql.connection.commit()
+				return render_template("add.html", laptop_name = laptop_name, laptop_manufacturer = laptop_manufacturer, laptop_date = laptop_date, user_name = user_name)
+			except:
+				user_name = request.form.get('user-name')
+				other_name = request.form.get('other-name')
+				other_manufacturer  = request.form.get('other-manufacturer')
+				other_date = request.form.get('other-date')
+				cur = mysql.connection.cursor()
+				Query=f'''select max(Sno)from Tempother;'''
+				cur.execute(Query)
+				C=cur.fetchone()[0]
+				if C==None:
+					C=0
+				Q=f'''insert into Tempother
+					values({C+1},\'{other_name}\',\'{other_manufacturer}\',\'{other_date}\') ;'''
+				cur.execute(Q)
+				mysql.connection.commit()
+				return render_template("add.html", other_name = other_name, other_manufacturer = other_manufacturer, other_date = other_date, user_name = user_name)
 
 	elif request.method == "GET":
 			return render_template("add.html")
@@ -238,9 +235,8 @@ def menu():
 						return render_template("laptops.html")
 				else:
 					return render_template("addlaptop.html")
-					#add another try block for 2.
 			else:
-				return render_template("phones.html")
+				return render_template("addother.html")
 		else:
 			return render_template("addphone.html")				
 	elif request.method == "GET":
@@ -258,18 +254,24 @@ def addphone():
 		except:
 			return render_template("addphone.html", data=data)
 		else:
-			ListOfSno=request.form.get('ListOfSno')
-			ListOfSno=ListOfSno.split(',')
-			for i in ListOfSno:	
-				Q=f'''insert into Phone(Name,Company,Date)
-						select Name, Company, Date from TempPhone where Sno={i};'''
-				cur.execute(Q)
-				mysql.connection.commit()
-				Q1=f'''delete from TempPhone where Sno={i};'''
-				cur.execute(Q1)
-				mysql.connection.commit()
+			try:
+				ListOfSno=request.form.get('ListOfSno')
+				ListOfSno=ListOfSno.split(',')
+				for i in ListOfSno:	
 
-			return render_template("addphone.html",ListOfSno=ListOfSno, data=data)			
+					Q=f'''insert into Phone(Name,Company,Date)
+							select Name, Company, Date from TempPhone where Sno={i};'''
+					cur.execute(Q)
+					mysql.connection.commit()
+					Q1=f'''delete from TempPhone where Sno={i};'''
+					cur.execute(Q1)
+					mysql.connection.commit()
+					return render_template("addphone.html",ListOfSno=ListOfSno, data=data)
+
+
+					
+			except:
+				return render_template("addphone.html",ListOfSno='Error', data=data)					
 	elif request.method == "GET":
 		return redirect(url_for('login'))
 
@@ -294,20 +296,96 @@ def addlaptop():
 				mysql.connection.commit()
 				Q1=f'''delete from TempLaptop where Sno={i};'''
 				cur.execute(Q1)
+
 				mysql.connection.commit()
 			return render_template("addlaptop.html",ListOfSno=ListOfSno, data=data)			
 	elif request.method == "GET":
 		return redirect(url_for('login'))
 
 
-
-
-'''
-@app.route('/request', methods=['POST', 'GET'] )
-def request():
-	if request.method == 'POST':
-		List_Of_Sno=request.form()
-		return render_template("request.html", List_Of_Sno=ListOfSno)
+@app.route('/compare', methods=['POST', 'GET'] )
+def compare():
+	if request.method == "POST":
+		try:
+			Choice1 = request.form.get('Choice1')
+			Choice2  = request.form.get('Choice2')
+		except:
+			return redirect(url_for('login'))
+		else:
+			cur = mysql.connection.cursor()
+			cur.execute(f'''SELECT * FROM PhoneDetails where Sno={Choice1};''')
+			data=cur.fetchone()
+			cur.execute(f'''SELECT * FROM PhoneDetails where Sno={Choice2};''')
+			data1=cur.fetchone()
+			Len=len(data)
+			return render_template("compare.html", data=data,data1=data1,PhoneSpecifications=PhoneSpecifications, Len=Len) 
+			''', Len=Len'''
 	elif request.method == "GET":
-		return redirect(url_for('login'))
-'''
+
+		return redirect(url_for('phones'), code=307) 	
+
+@app.route('/others', methods=['POST', 'GET'])
+def others():
+	if request.method == "POST":
+		try:
+			NameFilter = request.form.get('NameFilter')
+			cur = mysql.connection.cursor()
+			cur.execute(f'''SELECT Sno, Name, Company, DATE_FORMAT(Date, "%M %e %Y") as date FROM other WHERE upper(name) like \'%{NameFilter.upper()}%\' ;''')
+			data=cur.fetchall()
+			return render_template("others.html", data=data)
+		except:
+			try:
+				BrandFilter = request.form.get('BrandFilter')
+				cur = mysql.connection.cursor()
+				cur.execute(f'''SELECT Sno, Name, Company, DATE_FORMAT(Date, "%M %e %Y") as date FROM other WHERE upper(company) like \'%{BrandFilter.upper()}%\' ;''')
+				data=cur.fetchall()
+				return render_template("others.html", data=data)
+			except:
+				return render_template("others.html", data=data)
+		else:
+			try:
+				BrandFilter = request.form.get('BrandFilter')
+				cur = mysql.connection.cursor()
+				cur.execute(f'''SELECT Sno, Name, Company, DATE_FORMAT(Date, "%M %e %Y") as date FROM other WHERE upper(company) like \'%{BrandFilter.upper()}%\' ;''')
+				data=cur.fetchall()
+				return render_template("others.html", data=data)
+			except:
+				return render_template("others.html", data=data)
+			else:
+				BrandFilter = request.form.get('BrandFilter')
+				cur = mysql.connection.cursor()
+				cur.execute(f'''SELECT Sno, Name, Company, DATE_FORMAT(Date, "%M %e %Y") as date FROM other WHERE upper(name) like \'%{BrandFilter.upper()}%\' and  upper(company) like \'%{BrandFilter.upper()}%\' ;''')
+				data=cur.fetchall()
+				return render_template("others.html", data=data)
+	else:
+		cur = mysql.connection.cursor()
+		cur.execute('''SELECT Sno, Name, Company, DATE_FORMAT(Date, "%M %e %Y") as date FROM other order by name;''')
+		data=cur.fetchall()
+		return render_template("others.html", data=data)	
+
+@app.route('/addother', methods=['POST', 'GET'] )
+def addother():
+	cur = mysql.connection.cursor()
+	cur.execute('''select*from Tempother''')
+	data=cur.fetchall()
+	if request.method == "POST":
+		try:
+			if request.form['ListOfSno'] != '':
+				pass
+		except:
+			return render_template("addother.html", data=data)
+		else:
+			ListOfSno=request.form.get('ListOfSno')
+			ListOfSno=ListOfSno.split(',')
+			for i in ListOfSno:	
+				Q=f'''insert into other(Name,Company,Date)
+						select Name, Company, Date from Tempother where Sno={i};'''
+				cur.execute(Q)
+				mysql.connection.commit()
+				Q1=f'''delete from Tempother where Sno={i};'''
+				cur.execute(Q1)
+
+				mysql.connection.commit()
+			return render_template("addother.html",ListOfSno=ListOfSno, data=data)			
+	elif request.method == "GET":
+		return redirect(url_for('login')) 	 	

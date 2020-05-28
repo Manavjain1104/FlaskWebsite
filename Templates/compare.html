@@ -1,25 +1,8 @@
 {% extends 'base.html'%}
 
 
-{% block banner %} 
-
-{%if DetailsRequest%}
-{{data[1]}}
-{%else%}
-test
-{% endif %}
-
-{% endblock banner%}
-
-{% block subtext %} 
-
-{%if DetailsRequest%}
-{{data[1]}}
-{%else%}
-test
-{% endif %}
-
-{% endblock subtext %}
+{% block banner %} Compare {% endblock banner%}
+{% block subtext %} Compare {% endblock subtext %}
 
 {% block WelcomeArea %}
 {% endblock WelcomeArea %}
@@ -27,14 +10,17 @@ test
 {% block AboutContent %}
 {% endblock AboutContent %}
 
+  <!-- ***** Dento Pricing Table Area End ***** -->
+
+
+
 {% block content %}
 
 
 {% endblock content %}
 
 {% block Pricing %}
-
-  <section class="dento-pricing-table-area mt-50 section-padding-0-100">
+<section class="dento-pricing-table-area mt-50 section-padding-0-100">
     <div class="container">
       <div class="row">
         <div class="col-12">
@@ -44,6 +30,8 @@ test
                 <tr>
                   <th scope="col">{{PhoneSpecifications[1]}}</th>
                   <th scope="col">{{data[1]}}</th>
+                  <th scope="col">{{PhoneSpecifications[1]}}</th>
+                  <th scope="col">{{data1[1]}}</th>
                 </tr>
               </thead>
               <tbody>
@@ -51,15 +39,21 @@ test
                   <tr>
                       <td>{{PhoneSpecifications[i]}}</td>
                       <td>{{data[i]}}</td>
+                      <td>{{PhoneSpecifications[i]}}</td>
+                      <td>{{data1[i]}}</td>
                   </tr>
                   {% endfor %}
                   <tr>
                       <td>Buy Now</td>
                       <td><a href='https://www.amazon.in/s?k={{data[1]}}'>Amazon</a></td>
+                      <td>Buy Now</td>
+                      <td><a href='https://www.amazon.in/s?k={{data1[1]}}'>Amazon</a></td>
                   </tr>
                   <tr>
                       <td>Buy Now</td>
                       <td><a href='https://www.flipkart.com/search?q={{data[1]}}'>Flipkart</a></td>
+                      <td>Buy Now</td>
+                      <td><a href='https://www.flipkart.com/search?q={{data1[1]}}'>Flipkart</a></td>
                   </tr>
               </tbody>
             </table>
@@ -68,8 +62,6 @@ test
       </div>
     </div>
   </section>
-
-
 {% endblock Pricing %}
 
 {% block Consultations %}

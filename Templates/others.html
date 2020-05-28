@@ -1,8 +1,8 @@
 {% extends 'base.html'%}
 
 
-{% block banner %} Laptops {% endblock banner%}
-{% block subtext %} Laptops {% endblock subtext %}
+{% block banner %} others {% endblock banner%}
+{% block subtext %} others {% endblock subtext %}
 
 {% block WelcomeArea %}
 {% endblock WelcomeArea %}
@@ -53,7 +53,7 @@
       <div class="col-12">
       <form method="post" class="search" >
         <div >
-          <input class="form-control mb-30" type="text" name="NameFilter" onblur="if(this.value=='')this.value='Search by Laptop Name'; "onfocus="if(this.value=='Search by Laptop Name')this.value='';" value="Search by Laptop Name">
+          <input class="form-control mb-30" type="text" name="NameFilter" onblur="if(this.value=='')this.value='Search by Product Name'; "onfocus="if(this.value=='Search by Product Name')this.value='';" value="Search by Product Name">
         </div>
       </form>
       <form method="post" class="search" >
@@ -62,7 +62,7 @@
         </div>
       </form>
       <div class="more-btn text-center mt-50">
-        <a href="/laptops" class="btn dento-btn">Reset Filters</a>
+        <a href="/phones" class="btn dento-btn">Reset Filters</a>
       </div>
     </div>
   </div>
