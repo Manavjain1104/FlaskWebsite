@@ -1,8 +1,8 @@
 {% extends 'base.html'%}
 
-
-{% block banner %} addother {% endblock banner%}
-{% block subtext %} addother {% endblock subtext %}
+{% block title %}Admin{% endblock %}
+{% block banner %} Misc. Terminal {% endblock banner%}
+{% block subtext %} Misc. Terminal {% endblock subtext %}
 
 {% block WelcomeArea %}
 {% endblock WelcomeArea %}
@@ -28,52 +28,65 @@
     </center>
     <br/><br/><br/>
   {% else %}
-    </table>
-    <section class="dento-pricing-table-area mt-50 section-padding-0-100">
-      <div class="container">
-        <div class="row">
-          <div class="col-12">
-            <div class="dento-price-table table-responsive">
-              <table class="table table-borderless mb-0">
-                <thead>
-                  <tr>
-                     <th scope="col">Sno</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Company</th>
-                    <th scope="col">Date of Launch</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {% for item in data %}
+    {% if data %}
+      </table>
+      <section class="dento-pricing-table-area mt-50 section-padding-0-100">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <div class="dento-price-table table-responsive">
+                <table class="table table-borderless mb-0">
+                  <thead>
                     <tr>
-                      <td>{{item[0]}}</td>
-                      <th scope="row"><li><a href="https://www.amazon.in/s?k={{item[1]}}&ref=nb_sb_noss_2">{{item[1]}}</a></li></th>
-                      <td>{{item[2]}}</td>
-                      <td>{{item[3]}}</td>
+                       <th scope="col">Sno</th>
+                      <th scope="col">Name</th>
+                      <th scope="col">Company</th>
+                      <th scope="col">Date of Launch</th>
                     </tr>
-                  {% endfor %}
-                </tbody>
-              </table>
+                  </thead>
+                  <tbody>
+                    {% for item in data %}
+                      <tr>
+                        <td>{{item[0]}}</td>
+                        <th scope="row"><li><a href="https://www.amazon.in/s?k={{item[1]}}&ref=nb_sb_noss_2">{{item[1]}}</a></li></th>
+                        <td>{{item[2]}}</td>
+                        <td>{{item[3]}}</td>
+                      </tr>
+                    {% endfor %}
+                  </tbody>
+                </table>
+              </div>
             </div>
           </div>
+          <br>
+          <br>
+          <h5>Enter the list of the Serial Numbers to be added to the front-end table</h5>
+          <br>
+          <form action="/addother" method="POST">
+            <div class="row">
+              <div class="col-lg-6">
+                <input type="text" name="ListOfSno" class="form-control mb-30" placeholder="Comma separated list">
+              </div>
+                <button type="submit" class="btn dento-btn">Enter</button>
+              </div>
+            </div>
+          </form>
         </div>
         <br>
         <br>
-        <h5>Enter the list of the Serial Numbers to be added to the front-end table</h5>
-        <br>
-        <form action="/addother" method="POST">
-          <div class="row">
-            <div class="col-lg-6">
-              <input type="text" name="ListOfSno" class="form-control mb-30" placeholder="Comma separated list">
+      </section>
+          {% else %}
+        <center>
+              <h1>You're all up to date!</h1>
+              <p> Please Revisit Soon. </p>
+        </center>
+         <div class="container"> 
+              <div class="more-btn text-center mt-50">
+                <a href="/menu" class="btn dento-btn">Go Back</a>
+              </div>
             </div>
-              <button type="submit" class="btn dento-btn">Enter</button>
-            </div>
-          </div>
-        </form>
-      </div>
-      <br>
-      <br>
-    </section>
+            <br>
+      {% endif %}
     {% endif %}
 
 

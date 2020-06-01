@@ -34,17 +34,17 @@
             <div class="col-6 col-md-9 col-lg-8">
               <div class="top-header-content">
                 <a href="https://www.google.com/maps/dir//step+by+step+school+noida+address+maps/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x390ce6281d06e50d:0x1604ff30bb8d2595?sa=X&ved=2ahUKEwjTtIC-oKTpAhXS73MBHUKuDcoQ9RcwFnoECA8QGA" data-toggle="tooltip" data-placement="bottom" title="A-10 Sector- 132 Taj Expressway Noida"><i class="fa fa-map-marker"></i> <span>A-10 Sector- 132 Taj Expressway Noida</span></a>
-                <a href="#" data-toggle="tooltip" data-placement="bottom" title="Manavjain1104@gmail.com"><i class="fa fa-envelope"></i> <span>Manavjain1104@gmail.com</span></a>
+                <a href="gmail.com" data-toggle="tooltip" data-placement="bottom" title="Manavjain1104@gmail.com"><i class="fa fa-envelope"></i> <span>Manavjain1104@gmail.com</span></a>
               </div>
             </div>
             <!-- Top Header Social Info -->
             <div class="col-6 col-md-3 col-lg-4">
               <div class="top-header-social-info text-right">
-                <a href="#" data-toggle="tooltip" data-placement="bottom" title="Facebook"><i class="fa fa-facebook"></i></a>
-                <a href="#" data-toggle="tooltip" data-placement="bottom" title="Twitter"><i class="fa fa-twitter"></i></a>
-                <a href="#" data-toggle="tooltip" data-placement="bottom" title="Google Plus"><i class="fa fa-google-plus"></i></a>
-                <a href="#" data-toggle="tooltip" data-placement="bottom" title="Linkedin"><i class="fa fa-linkedin"></i></a>
-                <a href="#" data-toggle="tooltip" data-placement="bottom" title="Pinterest"><i class="fa fa-pinterest"></i></a>
+                <a href="https://www.facebook.com/" data-toggle="tooltip" data-placement="bottom" title="Facebook"><i class="fa fa-facebook"></i></a>
+                <a href="https://twitter.com" data-toggle="tooltip" data-placement="bottom" title="Twitter"><i class="fa fa-twitter"></i></a>
+                <a href="https://reddit.com" data-toggle="tooltip" data-placement="bottom" title="Reddit"><i class="fa fa-reddit"></i></a>
+                <a href="https://instagram.com" data-toggle="tooltip" data-placement="bottom" title="Instagram"><i class="fa fa-instagram"></i></a>
+                <a href="https://pinterest.com" data-toggle="tooltip" data-placement="bottom" title="Pinterest"><i class="fa fa-pinterest"></i></a>
               </div>
             </div>
           </div>
@@ -60,7 +60,7 @@
             <nav class="classy-navbar justify-content-between" id="dentoNav">
 
               <!-- Logo -->
-              <a class="nav-brand" href=""><img src="{{url_for('static', filename='website/img/core-img/logo.png')}}" alt=""></a>
+              <a class="nav-brand" href="/"><img src="{{url_for('static', filename='website/img/core-img/logo.png')}}" alt=""></a>
 
               <!-- Navbar Toggler -->
               <div class="classy-navbar-toggler">
@@ -88,17 +88,13 @@
                         <li><a href="/others">- Others</a></li>
                       </ul>
                     </li>
-                    <li><a>Add a Device</a>
-                      <ul class="dropdown">
-                        <li><a href="/add">Add a Device</a></li>
-                        <li><a href="/login">Administrator Login</a></li>
-                      </ul>
+                    <li><a href="/add">Add a Device</a>
                     </li>
-                    <li><a href="/blog">Blog</a>
+                    <li><a>Blog</a>
                       <ul class="dropdown">
-                        <li><a href="">- Blog</a></li>
+                        <li><a href="/blog">- Blog</a></li>
                         <li><a href="/blog_details">- Blog Details</a></li>
-                        <li><a href="">- Dropdown</a>
+<!--                         <li><a href="">- Dropdown</a>
                           <ul class="dropdown">
                             <li><a href="#">- Dropdown Item</a>
                               <ul class="dropdown">
@@ -109,17 +105,18 @@
                             <li><a href="#">- Dropdown Item</a></li>
                           </ul>
                         </li>
-
+ -->
                       </ul>
                     </li>
                     <li><a href="/contact">Contact</a></li>
+                    <li><a href="/login">Admin Login</a>
                   </ul>
                 </div>
                 <!-- Nav End -->
               </div>
 
               <!-- Booking Now Button -->
-              <a href="#" class="btn dento-btn booking-btn">Booking Now</a>
+             <!--  <a href="/contact" class="btn dento-btn booking-btn">Booking Now</a> -->
             </nav>
           </div>
         </div>
@@ -173,8 +170,8 @@
                   <h2 data-animation="fadeInUp" data-delay="100ms">We Believe Everyone Should Be Able To Easily Decide On their Technological Needs</h2>
                   <p data-animation="fadeInUp" data-delay="300ms">Shopping for tech doesn't have to be tough. That's why we're here to simplify the process for you.</p>
                   <div class="welcome-btn-group">
-                    <a href="" class="btn dento-btn mx-2" data-animation="fadeInUp" data-delay="500ms">Get Started</a>
-                    <a href="" class="btn dento-btn mx-2 active" data-animation="fadeInUp" data-delay="700ms">Contact Us</a>
+                    <a href="/service" class="btn dento-btn mx-2" data-animation="fadeInUp" data-delay="500ms">Get Started</a>
+                    <a href="/contact" class="btn dento-btn mx-2 active" data-animation="fadeInUp" data-delay="700ms">Contact Us</a>
                   </div>
                 </div>
               </div>
@@ -192,8 +189,8 @@
                   <h2 data-animation="fadeInDown" data-delay="100ms">Can't Decide What To Get Your Loved Ones?</h2>
                   <p data-animation="fadeInDown" data-delay="300ms">Luckily, we're here to help.</p>
                   <div class="welcome-btn-group">
-                    <a href="" class="btn dento-btn mx-2" data-animation="fadeInDown" data-delay="500ms">Get Started</a>
-                    <a href="" class="btn dento-btn mx-2 active" data-animation="fadeInDown" data-delay="700ms">Contact Us</a>
+                    <a href="/service" class="btn dento-btn mx-2" data-animation="fadeInDown" data-delay="500ms">Get Started</a>
+                    <a href="/contact" class="btn dento-btn mx-2 active" data-animation="fadeInDown" data-delay="700ms">Contact Us</a>
                   </div>
                 </div>
               </div>
@@ -315,47 +312,62 @@
 
 {% block Pricing %}
   <!-- ***** Dento Pricing Table Area Start ***** -->
-  </table>
   <section class="dento-pricing-table-area mt-50 section-padding-0-100">
-    <div class="container">
-      <div class="row">
-        <div class="col-12">
-          <div class="dento-price-table table-responsive">
-            <table class="table table-borderless mb-0">
-              <thead>
-                <tr>
-                  <th scope="col">Name</th>
-                  <th scope="col">Company</th>
-                  <th scope="col">Date of Launch</th>
-                </tr>
-              </thead>
-              <tbody>
-                {% for i in results %}
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="dento-price-table table-responsive">
+  <table id="myTable" class="table table-borderless mb-0">
+                <thead>
                   <tr>
-                    <th scope="row"><li><a href="/"></a></li>{{i[1]}}</th>
-                    <td>OnePlus</td>
-                    <td>April 24, 2020</td>
+                    <th scope="col">Name</th>
+                    <th scope="col">Company</th>
+                    <th scope="col">Date of Launch</th>
                   </tr>
-                <tr>
-                {% endfor %}
-                  <th scope="row"><li><a href="/">OnePlus 8</a></li></th>
-                  <td>OnePlus</td>
-                  <td>April 24, 2020</td>
-                </tr>
-                <tr>
-                  <th scope="row">Teeth Whitening Service at Dental Clinic</th>
-
-                  <td>1 times</td>
-                  <td>$100.00</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
+                </thead>
+                <tbody>
+                    <tr>
+                      <form method="post" action="/phonedetails" class="btn"></form>
+                        <th scope="row"><li><a><button name="DetailsRequest" action="/phonedetails" class="btn" type="submit" value="15">8.3 5G</button></a></li></th>
+                        <td>Nokia</td>
+                        <td>March 19 2020</td>
+                    </tr>
+                    <tr>
+                      <form method="post" action="/phonedetails" class="btn"></form>
+                        <th scope="row"><li><a><button name="DetailsRequest" action="/phonedetails" class="btn" type="submit" value="13">Black Shark 3 Pro</button></a></li></th>
+                        <td>Xiaomi </td>
+                        <td>March 3 2020</td>
+                    </tr>
+                    <tr>
+                      <form method="post" action="/phonedetails" class="btn"></form>
+                        <th scope="row"><li><a><button name="DetailsRequest" action="/phonedetails" class="btn" type="submit" value="20">Find X2 Neo</button></a></li></th>
+                        <td>Oppo</td>
+                        <td>April 15 2020</td>
+                    </tr>
+                    <tr>
+                      <form method="post" action="/phonedetails" class="btn"></form>
+                        <th scope="row"><li><a><button name="DetailsRequest" action="/phonedetails" class="btn" type="submit" value="6">Galaxy Fold 2</button></a></li></th>
+                        <td>Samsung</td>
+                        <td>August 13 2020</td>
+                    </tr>
+                    <tr>
+                      <form method="post" action="/phonedetails" class="btn"></form>
+                        <th scope="row"><li><a><button name="DetailsRequest" action="/phonedetails" class="btn" type="submit" value="3">iPhone 11</button></a></li></th>
+                        <td>Apple</td>
+                        <td>September 20 2019</td>
+                    </tr>
+                    <tr>
+                      <form method="post" action="/phonedetails" class="btn"></form>
+                        <th scope="row"><li><a><button name="DetailsRequest" action="/phonedetails" class="btn" type="submit" value="7">iPhone SE</button></a></li></th>
+                        <td>Apple</td>
+                        <td>April 24 2020</td>
+                    </tr>
+                </tbody>
+              </table>
 
         <div class="col-12">
           <div class="more-btn text-center mt-50">
-            <a href="#" class="btn dento-btn">Read More <i class="fa fa-angle-double-right"></i></a>
+            <a href="/phones" class="btn dento-btn">Read More <i class="fa fa-angle-double-right"></i></a>
           </div>
         </div>
       </div>
@@ -467,9 +479,9 @@
             <div class="dentist-content">
               <!-- Social Info -->
               <div class="dentist-social-info">
-                <a href="#"><i class="fa fa-amazon"></i></a>
-                <a href="#"><i class="fa fa-google"></i></a>
-                <a href="#"><i class="fa fa-reddit"></i></a>
+                <a href="https://www.amazon.in/s?k=Surface book 3"><i class="fa fa-amazon"></i></a>
+                <a href="https://www.google.com/search?q=Surface Book 3"><i class="fa fa-google"></i></a>
+                <a href="https://www.reddit.com/r/surfacebook/"><i class="fa fa-reddit"></i></a>
               </div>
               <!-- Dentist Info -->
               <div class="dentist-info bg-gradient-overlay">
@@ -488,9 +500,9 @@
             <div class="dentist-content">
               <!-- Social Info -->
               <div class="dentist-social-info">
-                <a href="#"><i class="fa fa-amazon"></i></a>
-                <a href="#"><i class="fa fa-google"></i></a>
-                <a href="#"><i class="fa fa-reddit"></i></a>
+                <a href="https://www.amazon.in/s?k=oneplus+8+pro"><i class="fa fa-amazon"></i></a>
+                <a href="https://www.google.com/search?q=OnePlus 8"><i class="fa fa-google"></i></a>
+                <a href="https://www.reddit.com/r/oneplus/"><i class="fa fa-reddit"></i></a>
               </div>
               <!-- Dentist Info -->
               <div class="dentist-info bg-gradient-overlay">
@@ -509,9 +521,9 @@
             <div class="dentist-content">
               <!-- Social Info -->
               <div class="dentist-social-info">
-                <a href="#"><i class="fa fa-amazon"></i></a>
-                <a href="#"><i class="fa fa-google"></i></a>
-                <a href="#"><i class="fa fa-reddit"></i></a>
+                <a href="https://www.amazon.in/s?k=wh1000xm3"><i class="fa fa-amazon"></i></a>
+                <a href="https://www.google.com/search?q=wh1000xm3"><i class="fa fa-google"></i></a>
+                <a href="https://www.reddit.com/r/buildapcsales/comments/gp0awo/headphones_sony_noise_cancelling_headphones/"><i class="fa fa-reddit"></i></a>
               </div>
               <!-- Dentist Info -->
               <div class="dentist-info bg-gradient-overlay">
@@ -610,8 +622,8 @@
               <a href="/blog_details" class="post-title">The best camera on a phone under $400</a>
               <p>The new iphone SE from Apple contains the latest processor the same as that of the iPhone 11 with a camera never seen before in this price range...</p>
               <div class="post-meta">
-                <a href="#"><i class="icon_clock_alt"></i> 28 March 2020</a>
-                <a href="#"><i class="icon_chat_alt"></i> 3 Comments</a>
+                <a><i class="icon_clock_alt"></i> 28 March 2020</a>
+                <a><i class="icon_chat_alt"></i> 3 Comments</a>
               </div>
             </div>
           </div>
@@ -625,11 +637,11 @@
             </a>
             <!-- Blog Content https://www.cnet.com/news/pixel-4a-and-4a-xl-rumors-5g-headphone-jack-may-22-release-date-android-11-beta/ -->
             <div class="blog-content">
-              <a href="/blog_details" class="post-title">Pixel 4A and 4A XL rumors: 5G, May 22 release date, Android 11 and more</a>
+              <a href="https://www.cnet.com/news/google-pixel-4a-pixel-4a-xl-rumors-heating-up-heres-everything-weve-heard/" class="post-title">Pixel 4A and 4A XL rumors: 5G, May 22 release date, Android 11 and more</a>
               <p>The Pixel 3A and 3A XL were the Pixel phones' first foray into a more affordable price bracket....</p>
               <div class="post-meta">
-                <a href="#"><i class="icon_clock_alt"></i> 12th Feb 2020</a>
-                <a href="#"><i class="icon_chat_alt"></i> 12 Comments</a>
+                <a><i class="icon_clock_alt"></i> 12th Feb 2020</a>
+                <a><i class="icon_chat_alt"></i> 12 Comments</a>
               </div>
             </div>
           </div>
@@ -638,7 +650,7 @@
         <!-- Single Blog Item -->
         <div class="col-12 col-md-6 col-lg-4">
           <div class="single-blog-item mb-100">
-            <a href="/blog_details">
+            <a href="https://www.theverge.com/21271735/microsoft-surface-book-3-review-15-inch-screen-size-specs-features-price">
               <img src="{{url_for('static', filename='website/img/bg-img/6.jpg')}}" alt="">
             </a>
             <!-- Blog Content -->
@@ -646,8 +658,8 @@
               <a href="/blog_details" class="post-title">Surface Book 3 will never be the most powerful laptop you've ever seen — here's why</a>
               <p>Microsoft recently revealed the new Surface Book 3, the first refresh since late 2017. The powerful 2-in-1 gets the latest Intel and NVIDIA silicon...</p>
               <div class="post-meta">
-                <a href="#"><i class="icon_clock_alt"></i> 7th May 2020</a>
-                <a href="#"><i class="icon_chat_alt"></i> 5 Comments</a>
+                <a><i class="icon_clock_alt"></i> 7th May 2020</a>
+                <a><i class="icon_chat_alt"></i> 5 Comments</a>
               </div>
             </div>
           </div>

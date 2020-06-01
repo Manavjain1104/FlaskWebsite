@@ -1,6 +1,6 @@
 {% extends 'base.html'%}
 
-
+{% block title %}Laptops{% endblock %}
 {% block banner %} Laptops {% endblock banner%}
 {% block subtext %} Laptops {% endblock subtext %}
 
@@ -20,6 +20,22 @@
 {% endblock content %}
 
 {% block Pricing %}
+
+{% if data %}
+    <div class="container"> 
+       <div class="single-widget-area search-widget">
+        <form method="post" class="search" >
+          <input type="search" name="NameFilter" class="form-control" onblur="if(this.value=='')this.value='Search by Laptop Name'; "onfocus="if(this.value=='Search by Laptop Name')this.value='';" value="Search by Laptop Name" >
+          <button type="submit"><i class="icon_search"></i></button>
+        </form>
+      </div>
+      <div class="single-widget-area search-widget">
+        <form method="post" class="search" >
+          <input type="search" class="form-control" name="BrandFilter" onblur="if(this.value=='')this.value='Search by Company Name'; "onfocus="if(this.value=='Search by Company Name')this.value='';" value="Search by Company Name">
+          <button type="submit"><i class="icon_search"></i></button>
+        </form>
+      </div>
+    </div>
   <section class="dento-pricing-table-area mt-50 section-padding-0-100">
     <div class="container">
       <div class="row">
@@ -47,26 +63,24 @@
         </div>
       </div>
     </div>
-    <br>
-    <br>
+  </div>
+  </section>
+
+
+{% else %}
+<center>
+      <h1>No Such Entries Present</h1>
+      <p> Please Broaden Search Parameters </p>
+</center>
+{% endif %}
+    
     <div class="container"> 
-      <div class="col-12">
-      <form method="post" class="search" >
-        <div >
-          <input class="form-control mb-30" type="text" name="NameFilter" onblur="if(this.value=='')this.value='Search by Laptop Name'; "onfocus="if(this.value=='Search by Laptop Name')this.value='';" value="Search by Laptop Name">
-        </div>
-      </form>
-      <form method="post" class="search" >
-        <div >
-          <input class="form-control mb-30" type="text" name="BrandFilter" onblur="if(this.value=='')this.value='Search by Company Name'; "onfocus="if(this.value=='Search by Company Name')this.value='';" value="Search by Company Name">
-        </div>
-      </form>
       <div class="more-btn text-center mt-50">
         <a href="/laptops" class="btn dento-btn">Reset Filters</a>
       </div>
     </div>
-  </div>
-  </section>
+    <br>
+
 {% endblock Pricing %}
 
 {% block Consultations %}

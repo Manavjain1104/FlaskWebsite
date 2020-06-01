@@ -1,6 +1,6 @@
 {% extends 'base.html'%}
 
-
+{% block title %}Phones{% endblock %}
 {% block banner %} Phones {% endblock banner%}
 {% block subtext %} Phones {% endblock subtext %}
 
@@ -20,104 +20,115 @@
 {% endblock content %}
 
 {% block Pricing %}
-
-
-  <section class="dento-pricing-table-area mt-50 section-padding-0-100">
-    <div class="container">
-      <div class="row">
-        <div class="col-12">
-          <div class="dento-price-table table-responsive">
-            <table id="myTable" class="table table-borderless mb-0">
-              <thead>
-                <tr>
-                  <th scope="col">Name</th>
-                  <th scope="col">Company</th>
-                  <th scope="col">Date of Launch</th>
-                </tr>
-              </thead>
-              <tbody>
-                {% for item in data %}
+{% if data %}
+      <div class="container"> 
+         <div class="single-widget-area search-widget">
+          <form method="post" class="search" >
+            <input type="search" name="NameFilter" class="form-control" onblur="if(this.value=='')this.value='Search by Phone Name'; "onfocus="if(this.value=='Search by Phone Name')this.value='';" value="Search by Phone Name" >
+            <button type="submit"><i class="icon_search"></i></button>
+          </form>
+        </div>
+        <div class="single-widget-area search-widget">
+          <form method="post" class="search" >
+            <input type="search" class="form-control" name="BrandFilter" onblur="if(this.value=='')this.value='Search by Company Name'; "onfocus="if(this.value=='Search by Company Name')this.value='';" value="Search by Company Name">
+            <button type="submit"><i class="icon_search"></i></button>
+          </form>
+        </div>
+      </div>
+    <section class="dento-pricing-table-area mt-50 section-padding-0-100">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="dento-price-table table-responsive">
+              <table id="myTable" class="table table-borderless mb-0">
+                <thead>
                   <tr>
-                    <form method="post" action="/phonedetails" class='btn'>
-                      <th scope="row"><li><a><button name="DetailsRequest" action="/phonedetails" class='btn' type="submit" value="{{item[0]}}">{{item[1]}}</button></a></li></th>
-                      <td>{{item[2]}}</td>
-                      <td>{{item[3]}}</td>
-                    </form>
+                    <th scope="col">Name</th>
+                    <th scope="col">Company</th>
+                    <th scope="col">Date of Launch</th>
                   </tr>
-                {% endfor %}
-			        </tbody>
-            </table>
+                </thead>
+                <tbody>
+                  {% for item in data %}
+                    <tr>
+                      <form method="post" action="/phonedetails" class='btn'>
+                        <th scope="row"><li><a><button name="DetailsRequest" action="/phonedetails" class='btn' type="submit" value="{{item[0]}}">{{item[1]}}</button></a></li></th>
+                        <td>{{item[2]}}</td>
+                        <td>{{item[3]}}</td>
+                      </form>
+                    </tr>
+                  {% endfor %}
+  			        </tbody>
+              </table>
+            </div>
           </div>
         </div>
       </div>
+        <div class="more-btn text-center mt-50">
+          <a href="/phones" class="btn dento-btn">Reset Filters</a>
+        </div>
     </div>
-    <br>
-    <br>
-    <div class="container"> 
-      <div class="col-12">
-      <form method="post" class="search" >
-          <input class="form-control mb-30" type="text" name="NameFilter" onblur="if(this.value=='')this.value='Search by Phone Name'; "onfocus="if(this.value=='Search by Phone Name')this.value='';" value="Search by Phone Name">
-          <!--Try to Make Both Filters work simultaneously-->
-      </form>
-      <form method="post" class="search" >
-          <input class="form-control mb-30" type="text" name="BrandFilter" onblur="if(this.value=='')this.value='Search by Company Name'; "onfocus="if(this.value=='Search by Company Name')this.value='';" value="Search by Company Name">
-      </form>
+        <div class="row">
+          <!-- Section Heading -->
+          <div class="col-12">
+            <div class="section-heading text-center white">
+              <br>
+              <br>
+              <div class="line"></div>
+            </div>
+          </div>
+        </div>
+    <div class="container">
+      <center>
+      <h2>Compare</h2>
+      </center>
+      <br>
+        <div class="row">
+          <div class="col-12">
+              <form action="/compare" method="post">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group mb-30">
+                      <select name="Choice1" class="form-control">
+                        <option value="2">Choice 1</option>
+                      {% for item in data %}
+                        <option value="{{item[0]}}">{{item[1]}}</option>
+                      {% endfor %}
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group mb-30">
+                      <select name="Choice2" class="form-control">
+                        <option value="1">Choice 2</option>
+                      {% for item in data %}
+                        <option value="{{item[0]}}">{{item[1]}}</option>
+                      {% endfor %}
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-12 text-center">
+                    <button type="submit" class="btn dento-btn">Compare Now</button>
+                  </div>
+                </div>
+              </form>
+          </div>
+        </div>
+      </div>
+      </div>
+    </section>
+{% else %}
+<center>
+      <h1>No Such Entries Present</h1>
+      <p> Please Broaden Search Parameters </p>
+</center>
+ <div class="container"> 
       <div class="more-btn text-center mt-50">
         <a href="/phones" class="btn dento-btn">Reset Filters</a>
       </div>
     </div>
-  </div>
-      <div class="row">
-        <!-- Section Heading -->
-        <div class="col-12">
-          <div class="section-heading text-center white">
-            <br>
-            <br>
-            <div class="line"></div>
-          </div>
-        </div>
-      </div>
-  <div class="container">
-    <center>
-    <h2>Compare</h2>
-    </center>
     <br>
-      <div class="row">
-        <div class="col-12">
-            <form action="/compare" method="post">
-              <div class="row">
-                <div class="col-md-6">
-                  <div class="form-group mb-30">
-                    <select name="Choice1" class="form-control">
-                      <option value="2">Choice 1</option>
-                    {% for item in data %}
-                      <option value="{{item[0]}}">{{item[1]}}</option>
-                    {% endfor %}
-                    </select>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="form-group mb-30">
-                    <select name="Choice2" class="form-control">
-                      <option value="1">Choice 2</option>
-                    {% for item in data %}
-                      <option value="{{item[0]}}">{{item[1]}}</option>
-                    {% endfor %}
-                    </select>
-                  </div>
-                </div>
-                <div class="col-12 text-center">
-                  <button type="submit" class="btn dento-btn">Compare Now</button>
-                </div>
-              </div>
-            </form>
-        </div>
-      </div>
-    </div>
-    </div>
-  </section>
-
-
+{% endif %}
 
 {% endblock Pricing %}
 
