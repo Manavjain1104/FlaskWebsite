@@ -22,9 +22,12 @@
 {% block Pricing %}
 
   {% if ListOfSno %}
+   {% if link %}
+     <h2>{{ query }}</h2>
+    {% endif %}
     <center>
       <h2>Thanks! Data entries of Sno. {{ ListOfSno }} will be added!</h2>
-      <p> We will respond shortly </p>
+      <p> Please proceed to add the phone details via the program provided </p>
     </center>
     <br/><br/><br/>
   {% else %}
