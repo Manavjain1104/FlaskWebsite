@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, redirect, url_for, request
 from flask_mysqldb import MySQL
 
 
-# Initislising the parameters on the basis of which the data will be inserted into the PhoneDetails MySQL table
+# Initialising the parameters on the basis of which the data will be inserted into the PhoneDetails MySQL table
 # Website used for data is gsmarena
 PhoneSpecifications=['Sno','Name','Announced','Dimensions','Weight','Build','Size','Resolution','Protection','OS','Chipset','Internal','Sensors','Colors','Price']
 
@@ -39,9 +39,9 @@ def pricing():
 	return render_template("pricing.html")
 
 # Defining the function for the phone overview page and its route for href tags for HTML.
-@app.route('/phones', methods=['POST', 'GET']) #Defining the methods of accessing the page to differencitate when using forms
+@app.route('/phones', methods=['POST', 'GET']) #Defining the methods of accessing the page to differentiate when using forms
 def phones():
-	#When a form such as the searchbar is POSTED from the webpage the we have to get the form. 
+	#When a form such as the search bar is POSTED from the webpage the we have to get the form. 
 	if request.method == "POST":
 		try:
 			#Checking if the first form is empty or not
@@ -51,7 +51,7 @@ def phones():
 			data=cur.fetchall()
 			return render_template("phones.html", data=data)
 		except:
-			#if first form is empty and no volue is returned then the second form is cheked	
+			#if first form is empty and no value is returned then the second form is checked	
 			try:
 				BrandFilter = request.form.get('BrandFilter')
 				cur = mysql.connection.cursor()
@@ -59,7 +59,7 @@ def phones():
 				data=cur.fetchall()
 				return render_template("phones.html", data=data)
 			except:
-				#Left empty because even if the form is empty, due to the use of %% with like in each query all of the data is rendered essetially rendering the stock page
+				#Left empty because even if the form is empty, due to the use of %% with like in each query all of the data is rendered essentially rendering the stock page
 				pass
 		else:
 			#checking for second form
@@ -95,7 +95,7 @@ def phonedetails():
 		cur.execute(f'''SELECT * FROM PhoneDetails where Sno={DetailsRequest};''')
 		data=cur.fetchone()
 		Len=len(data)
-		return render_template("phonedetails.html", data=data,PhoneSpecifications=PhoneSpecifications, Len=Len,DetailsRequest=DetailsRequest) 
+		return render_template("phonedetails.html", data=data, PhoneSpecifications=PhoneSpecifications, Len=Len, DetailsRequest=DetailsRequest) 
 	elif request.method == "GET":
 		cur = mysql.connection.cursor()
 		cur.execute('''SELECT Sno, Name, Company, DATE_FORMAT(Date, "%M %e %Y") as Date FROM Phone order by name;''')
@@ -105,10 +105,10 @@ def phonedetails():
 # Defining the function for the laptop page and its route for href tags for HTML.
 @app.route('/laptops', methods=['POST', 'GET'])
 def laptops():
-	#When a form such as the searchbar is POSTED from the webpage the we have to get the form. 
+	#When a form such as the search bar is POSTED from the webpage the we have to get the form. 
 	if request.method == "POST":
 		try:
-			#if first form is empty and no volue is returned then the second form is cheked	
+			#if first form is empty and no value is returned then the second form is checked	
 			NameFilter = request.form.get('NameFilter')
 			cur = mysql.connection.cursor()
 			cur.execute(f'''SELECT Sno, Name, Company, DATE_FORMAT(Date, "%M %e %Y") as date FROM laptop WHERE upper(name) like \'%{NameFilter.upper()}%\' ;''')
@@ -155,7 +155,7 @@ def add():
 			#Getting all the details from the Add A Phone part of the page to see if the user is entering the details for a phone or not
 			user_name = request.form.get('user-name')
 			phone_name = request.form.get('phone-name')
-			phone_manufacturer  = request.form.get('phone-manufacturer')
+			phone_manufacturer = request.form.get('phone-manufacturer')
 			phone_date = request.form.get('phone-date')
 			cur = mysql.connection.cursor()
 			Query=f'''select max(Sno)from TempPhone;'''
@@ -171,10 +171,10 @@ def add():
 			return render_template("add.html", phone_name = phone_name, phone_manufacturer = phone_manufacturer, phone_date = phone_date, user_name = user_name)
 		except:
 			try:
-				#Getting all the details from the Add A Laptop part of the page to see if the user is entering the details for a Laptop or not after checing if the phone form is empty
+				#Getting all the details from the Add A Laptop part of the page to see if the user is entering the details for a Laptop or not after checking if the phone form is empty
 				user_name = request.form.get('user-name')
 				laptop_name = request.form.get('laptop-name')
-				laptop_manufacturer  = request.form.get('laptop-manufacturer')
+				laptop_manufacturer = request.form.get('laptop-manufacturer')
 				laptop_date = request.form.get('laptop-date')
 				cur = mysql.connection.cursor()
 				Query=f'''select max(Sno)from TempLaptop;'''
@@ -188,10 +188,10 @@ def add():
 				mysql.connection.commit()
 				return render_template("add.html", laptop_name = laptop_name, laptop_manufacturer = laptop_manufacturer, laptop_date = laptop_date, user_name = user_name)
 			except:
-				#Getting all the details from the Add A Product part of the page to see if the user is entering the details for aother product or not after checing if all the other forms are empty
+				#Getting all the details from the Add A Product part of the page to see if the user is entering the details for another product or not after checking if all the other forms are empty
 				user_name = request.form.get('user-name')
 				other_name = request.form.get('other-name')
-				other_manufacturer  = request.form.get('other-manufacturer')
+				other_manufacturer = request.form.get('other-manufacturer')
 				other_date = request.form.get('other-date')
 				cur = mysql.connection.cursor()
 				Query=f'''select max(Sno)from Tempother;'''
@@ -225,9 +225,9 @@ def contact():
 	if request.method == "POST":
 		#requesting the data from the phone
 		message_name = request.form.get('message-name')
-		message_email  = request.form.get('message-email')
+		message_email = request.form.get('message-email')
 		message = request.form.get('message')
-		return render_template("contact.html", message_name = message_name, message_email=message_email, message=message )
+		return render_template("contact.html", message_name = message_name, message_email=message_email, message=message)
 	elif request.method == "GET":
 		#rendering the page if no data is present
 		return render_template("contact.html")
@@ -275,10 +275,10 @@ def menu():
 					#if the 3rd button is clicked we render the addlaptops page which shows the user input and allows the employee to add it to the main page
 					return render_template("addlaptop.html")
 			else:
-				#if the 2nd button is clicked we render the addother page which shows the user input and allows the employee to add it to the main page
+				#if the 2nd button is clicked, we render the addother page which shows the user input and allows the employee to add it to the main page
 				return render_template("addother.html")
 		else:
-			#if the 1st button is clicked we render the addphones page which shows the user input and allows the employee to add it to the main page. after this they are prompted to use the other program to add details
+			#if the 1st button is clicked, we render the addphones page which shows the user input and allows the employee to add it to the main page. after this they are prompted to use the other program to add details
 			return render_template("addphone.html")				
 	elif request.method == "GET":
 		#if the user tries to access menu without going through login then the login page is rendered
@@ -342,7 +342,7 @@ def addlaptop():
 				Q1=f'''delete from TempLaptop where Sno={i};'''
 				cur.execute(Q1)
 				mysql.connection.commit()
-			return render_template("addlaptop.html",ListOfSno=ListOfSno, data=data)			
+			return render_template("addlaptop.html", ListOfSno=ListOfSno, data=data)			
 	elif request.method == "GET":
 		return redirect(url_for('login'))
 
@@ -353,7 +353,7 @@ def compare():
 	if request.method == "POST":
 		try:
 			Choice1 = request.form.get('Choice1')
-			Choice2  = request.form.get('Choice2')
+			Choice2 = request.form.get('Choice2')
 		except:
 			return redirect(url_for('login'))
 		else:
@@ -435,6 +435,6 @@ def addother():
 				cur.execute(Q1)
 
 				mysql.connection.commit()
-			return render_template("addother.html",ListOfSno=ListOfSno, data=data)			
+			return render_template("addother.html", ListOfSno=ListOfSno, data=data)			
 	elif request.method == "GET":
-		return redirect(url_for('login')) 	 	
+		return redirect(url_for('login')) 
