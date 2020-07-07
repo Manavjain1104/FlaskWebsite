@@ -59,9 +59,34 @@ Last Update: Dec 05, 2018
 @import url(magnific-popup.css);
 @import url(font-awesome.min.css);
 @import url(style2.css);
+
+
 * {
   margin: 0;
   padding: 0; }
+
+  :root {
+    --background-color: #d7401d;
+    --text-color: #ffffff;
+    --link-color: #ffffff;
+  }
+
+  /* DO NOT EDIT BELOW THIS LINE */
+  .covid-banner {
+    position: relative;
+    height: 100%;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    padding: 20px;
+    text-align: center;
+    transition: transform .25s;
+    z-index: 99;
+  }
+
+  .covid-banner a {
+    color: var(--link-color);
+    font-weight: 700;
+  }
 
 body {
   font-family: "Montserrat", sans-serif;

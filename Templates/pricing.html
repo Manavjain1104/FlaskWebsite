@@ -1,28 +1,117 @@
-{% extends 'base.html'%}
+<!DOCTYPE html>
+<html>
 
 
-{% block banner %} Our Pricing {% endblock banner%}
-{% block subtext %} Pricing {% endblock subtext %}
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="{% block meta %}CS end year project{% endblock %}">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Title -->
+  <title>{% block title %}Manav Jain CS Project 2020-2021 {% endblock %}</title>
+  <!-- Favicon -->
+  <link rel="icon" href="{{url_for('static', filename='website/img/core-img/favicon.ico')}}">
+  <!-- Core Stylesheet -->
+  <link rel="stylesheet" href="{{url_for('static', filename='website/css/styletest.css')}}">
+</head>
+<body>
+		<title>hello</title>
+    <footer class="footer-area bg-img bg-gradient-overlay" style="background-image: url({{url_for('static', filename='website/img/bg-img/3.jpg')}})">
+      <div class="container">
+        <div class="row">
+          <!-- Single Footer Widget -->
+          <div class="col-12 col-sm-6 col-lg-4">
+            <div class="single-footer-widget">
+              <a href="" class="d-block mb-4"><img src="{{url_for('static', filename='website/img/core-img/logoW.png')}}" alt=""></a>
+              <p>The world of tech can be very tough to navigate for the uninitiated. That's why we try to provide simplify it.</p>
+              <div class="footer-contact">
+                <p><i class="icon_pin"></i> A-10 Sector- 132 Taj Expressway Noida</p>
+                <p><i class="icon_phone"></i> +91 8447696875 </p>
+                <p><i class="icon_mail"></i> Manavjain1104@gmail.com</p>
+              </div>
+            </div>
+          </div>
 
-{% block WelcomeArea %}
-{% endblock WelcomeArea %}
+          <!-- Single Footer Widget -->
+          <div class="col-12 col-sm-6 col-lg">
+            <div class="single-footer-widget">
+              <!-- Widget Title -->
+              <h5 class="widget-title">Opening Hours</h5>
 
-{% block AboutContent %}
-{% endblock AboutContent %}
+              <!-- Opening Hours -->
+              <ul class="opening-hours">
+                <li><span>Mon-Wed</span> <span>8.00-18.00</span></li>
+                <li><span>Thu-Fri</span> <span>8.00-17.00</span></li>
+                <li><span>Sat</span> <span>9.00-17.00</span></li>
+                <li><span>Sun</span> <span>10.00-17.00</span></li>
+                <li><span>Holiday</span> <span>Closed</span></li>
+              </ul>
+            </div>
+          </div>
 
-{% block content %}
+          <!-- Single Footer Widget -->
+          <div class="col-12 col-sm-6 col-lg">
+            <div class="single-footer-widget">
+              <!-- Widget Title -->
+              <h5 class="widget-title">Quick Link</h5>
 
+              <!-- Quick Links Nav -->
+              <nav>
+                <ul class="quick-links">
+                  <li><a href="#">About</a></li>
+                  <li><a href="#">FAQs</a></li>
+                  <li><a href="#">Contact</a></li>
+                  <li><a href="#">Policy</a></li>
+                  <li><a href="#">News</a></li>
+                  <li><a href="#">Advisors</a></li>
+                  <li><a href="#">Careers</a></li>
+                  <li><a href="#">Our Employees</a></li>
+                  <li><a href="#">Services</a></li>
+                  <li><a href="#">Legals</a></li>
+                </ul>
+              </nav>
+            </div>
+          </div>
 
-{% endblock content %}
+          <!-- Single Footer Widget -->
+          <div class="col-12 col-sm-6 col-lg">
+            <div class="single-footer-widget">
+              <!-- Widget Title -->
+              <h5 class="widget-title">Newsletter</h5>
 
-{% block Consultations %}
-{% endblock Consultations %}
+              <p>We will send out weekly newest article and some great offers</p>
+              <!-- Newsletter Form -->
+              <div class="footer-newsletter-form">
+                <form action="/" method="post">
+                  <input type="email" name="nl-email" value="" placeholder="Email Address">
+                  <button type="submit"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+                </form>
+              </div>
 
-{% block Reccomendations %}
-{% endblock Reccomendations %}
+              <!-- Social Info -->
+              <div class="footer-social-info">
+                <a href="#" data-toggle="tooltip" data-placement="top" title="Facebook"><i class="fa fa-facebook"></i></a>
+                <a href="#" data-toggle="tooltip" data-placement="top" title="Twitter"><i class="fa fa-twitter"></i></a>
+                <a href="#" data-toggle="tooltip" data-placement="top" title="Google Plus"><i class="fa fa-google-plus"></i></a>
+                <a href="#" data-toggle="tooltip" data-placement="top" title="Linkedin"><i class="fa fa-linkedin"></i></a>
+                <a href="#" data-toggle="tooltip" data-placement="top" title="Pinterest"><i class="fa fa-pinterest"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
-{% block Testimonials %}
-{% endblock Testimonials %}
-
-{% block TheLatestNews %}
-{% endblock TheLatestNews %}
+      <!-- Copywrite Area -->
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="copywrite-content">
+              <p>Copyright ©2020 All rights reserved</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- ***** Footer Area End ***** -->
+</body>
+</html>

@@ -1,6 +1,20 @@
 from flask import Flask, render_template, request, redirect, url_for, request
 from flask_mysqldb import MySQL
 
+'''
+cd /c/FlaskProjects
+source VirtualFlask/Scripts/activate
+export FLASK_ENV=development
+export FLASK_APP=app.py
+flask run
+
+git add .
+git commit -am 'NameOfCommit'
+git push
+
+Initialising the tables given below at the end
+
+'''
 
 # Initialising the parameters on the basis of which the data will be inserted into the PhoneDetails MySQL table
 # Website used for data is gsmarena
@@ -19,17 +33,20 @@ mysql = MySQL()
 mysql.init_app(app)
 
 # Defining the function for the home page and its route for href tags for HTML
-@app.route('/')
+@app.route('/', methods=['POST', 'GET'])
+#This is a dummy page which is present for looks
 def home():
 	return render_template("home.html")
 
 # Defining the function for the about page and its route for href tags for HTML
 @app.route('/about')
+#This is a dummy page which is present for looks
 def about():
 	return render_template("about.html")
 
 # Defining the function for the service page and its route for href tags for HTML
 @app.route('/service')
+#This is a dummy page which is present for looks
 def service():
 	return render_template("service.html")
 
@@ -40,6 +57,7 @@ def pricing():
 
 # Defining the function for the phone overview page and its route for href tags for HTML.
 @app.route('/phones', methods=['POST', 'GET']) #Defining the methods of accessing the page to differentiate when using forms
+#This function is responsible for the page phone.html. It is responsible for the comparing the phones and displaying their details while also making the filters work.
 def phones():
 	#When a form such as the search bar is POSTED from the webpage the we have to get the form. 
 	if request.method == "POST":
@@ -82,12 +100,13 @@ def phones():
 		cur = mysql.connection.cursor()
 		cur.execute('''SELECT Sno, Name, Company, DATE_FORMAT(Date, "%M %e %Y") as Date FROM Phone order by name;''')
 		data=cur.fetchall()
-		return render_template("phones.html", data=data)	
+		return render_template("phones.html", data=data)
 
 
 # Defining the function for the phone details page and its route for href tags for HTML.
 #PLEASE SEE googlescrape.py TO SEE HOW THE DATA IS ENTERED INTO PhoneDetails
 @app.route('/phonedetails', methods=['POST', 'GET'])
+#This function is responsible for the page phonedetails.html. It is responsible for the showing the details of a single phone.
 def phonedetails():
 	if request.method == "POST":
 		cur = mysql.connection.cursor()
@@ -105,6 +124,7 @@ def phonedetails():
 # Defining the function for the laptop page and its route for href tags for HTML.
 @app.route('/laptops', methods=['POST', 'GET'])
 def laptops():
+#This function is responsible for the page laptops.html. It is responsible for the showing the table of laptops.
 	#When a form such as the search bar is POSTED from the webpage the we have to get the form. 
 	if request.method == "POST":
 		try:
@@ -438,3 +458,48 @@ def addother():
 			return render_template("addother.html", ListOfSno=ListOfSno, data=data)			
 	elif request.method == "GET":
 		return redirect(url_for('login')) 
+
+'''
+create table Phone
+(
+Sno 		Int(3)		Primary Key Auto_increment,
+Name 		Varchar(30),
+Company  	Varchar(50),
+Date 		Date);
+
+create table TempPhone
+(
+Sno 		Int(3),
+Name 		Varchar(30),
+Company  	Varchar(50),
+Date 		Date);
+
+
+create table TempOther like TempPhone;
+
+create table TempLaptop like TempPhone;
+
+Create table Laptop like Phone;
+
+Create table Other like Phone;
+
+Create table PhoneDetails
+(
+Sno 		Int(3)		Primary Key Auto_increment,
+Name 		Varchar(100),
+Announced 	Varchar(500),
+Dimensions      Varchar(500),
+Weight          Varchar(500),
+Build           Varchar(500),
+Size            Varchar(500),
+Resolution      Varchar(500),
+Protection      Varchar(500),
+OS              Varchar(500),
+Chipset         Varchar(500),
+Internal        Varchar(500),
+Sensors         Varchar(500),
+Colors          Varchar(500),
+Price           Varchar(500)
+);
+
+'''

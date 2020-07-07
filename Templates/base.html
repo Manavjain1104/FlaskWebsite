@@ -18,12 +18,15 @@
 
 {% block Header %}
   <!-- Preloader -->
+  <style>
+</style>
   <div id="preloader">
     <div class="preload-content">
       <div id="dento-load"></div>
     </div>
   </div>
     <!-- ***** Header Area Start ***** -->
+
     <header class="header-area">
       <!-- Top Header Area -->
       <div class="top-header-area">
@@ -44,13 +47,13 @@
                 <a href="https://reddit.com" data-toggle="tooltip" data-placement="bottom" title="Reddit"><i class="fa fa-reddit"></i></a>
                 <a href="https://instagram.com" data-toggle="tooltip" data-placement="bottom" title="Instagram"><i class="fa fa-instagram"></i></a>
                 <a href="https://pinterest.com" data-toggle="tooltip" data-placement="bottom" title="Pinterest"><i class="fa fa-pinterest"></i></a>
+                <a data-toggle="tooltip" data-placement="bottom" title="Hide/Show Banner" onclick="myFunction()" ><i class="fa fa-angle-double-up"></i></a>
               </div>
             </div>
           </div>
         </div>
       </div>
       <!-- Top Header End -->
-
       <!-- Main Header Start -->
       <div class="main-header-area">
         <div class="classy-nav-container breakpoint-off">
@@ -87,13 +90,13 @@
                         <li><a href="/others">- Others</a></li>
                       </ul>
                     </li>
-                    <li><a href="/add">Add a Device</a>
-                    </li>
-                    <li><a>Blog</a>
+                    <li><a href="/add">Add a Device</a></li>
+                    
+<!--                     <li><a>Blog</a>
                       <ul class="dropdown">
                         <li><a href="/blog">- Blog</a></li>
                         <li><a href="/blog_details">- Blog Details</a></li>
-<!--                         <li><a href="">- Dropdown</a>
+                        <li><a href="">- Dropdown</a>
                           <ul class="dropdown">
                             <li><a href="#">- Dropdown Item</a>
                               <ul class="dropdown">
@@ -104,17 +107,15 @@
                             <li><a href="#">- Dropdown Item</a></li>
                           </ul>
                         </li>
- -->
+
                       </ul>
-                    </li>
+                    </li> -->
                     <li><a href="/contact">Contact</a></li>
-                    <li><a href="/login">Admin Login</a>
+                    <li><a href="/login">Admin Login</a></li>
                   </ul>
                 </div>
                 <!-- Nav End -->
               </div>
-
-              <!-- Booking Now Button -->
              <!--  <a href="/contact" class="btn dento-btn booking-btn">Booking Now</a> -->
             </nav>
           </div>
@@ -720,7 +721,7 @@
                   <li><a href="#">News</a></li>
                   <li><a href="#">Advisors</a></li>
                   <li><a href="#">Careers</a></li>
-                  <li><a href="#">Dentist</a></li>
+                  <li><a href="#">Our Employees</a></li>
                   <li><a href="#">Services</a></li>
                   <li><a href="#">Legals</a></li>
                 </ul>
@@ -737,7 +738,7 @@
               <p>We will send out weekly newest article and some great offers</p>
               <!-- Newsletter Form -->
               <div class="footer-newsletter-form">
-                <form action="#" method="post">
+                <form action="/" method="post">
                   <input type="email" name="nl-email" value="" placeholder="Email Address">
                   <button type="submit"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
                 </form>
@@ -761,9 +762,7 @@
         <div class="row">
           <div class="col-12">
             <div class="copywrite-content">
-              <p>
-  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved </a>
-  </p>
+              <p>Copyright ©2020 All rights reserved</p>
             </div>
           </div>
         </div>
@@ -786,6 +785,9 @@
   <script src="{{url_for('static', filename='website/js/default-assets/active.js')}}"></script>
 
   <script src="{{url_for('static', filename='website/js/search.js')}}"></script>
+
+  <script src="{{url_for('static', filename='website/js/default-assets/covid.js')}}"></script>
+
 {% endblock JS %}
 
 </body>
